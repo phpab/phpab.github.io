@@ -1,0 +1,61 @@
+---
+layout: default
+title: Home
+generator: pagination
+pagination:
+    max_per_page: 5
+use:
+    - posts
+---
+<u><em><h1>Latest Posts</h1></em></u><br/>
+<div class="posts">
+  {% for post in page.pagination.items %}
+    <div class="post">
+      <h2 class="post-title">
+        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+      </h2>
+      <span class="post-date">{{ post.date | date("j F Y")}}</span>
+
+        <!--{{ post.blocks.content|raw|striptags[:280] }} ..... <a href="{{ site.url }}{{ post.url }}">read more</a>-->
+
+            <p>{{ post.description }}</p>
+
+    </div><!-- end class post -->
+    <div class="related">
+    {% if post.meta.categories %}
+      <p>
+        Categories:
+        {% for category in post.meta.categories %}
+          <a href="{{ site.url }}/archive/categories/{{ category|url_encode(true) }}">{{ category }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    {% if post.meta.tags %}
+      <p>
+        Tags:
+        {% for tag in post.meta.tags %}
+          <a href="{{ site.url }}/archive/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+    {% endif %}
+  </div><!-- end class related -->
+
+  {% endfor %}
+</div><!-- end class posts -->
+
+<div class="pagination">
+
+  {% if page.pagination.next_page %}
+    <a class="pagination-item older" href="{{ site.url }}{{ page.pagination.next_page.url }}">Older Posts</a>
+  {% else %}
+    <span class="pagination-item older">Older Posts</span>
+  {% endif %}
+
+  {% if page.pagination.previous_page %}
+    <a class="pagination-item newer" href="{{ site.url }}{{ page.pagination.previous_page.url }}">Newer Posts</a>
+  {% else %}
+    <span class="pagination-item newer">Newer Posts</span>
+  {% endif %}
+
+</div><!-- end class pagination -->

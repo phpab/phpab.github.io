@@ -1,0 +1,50 @@
+{% extends "default" %}
+{% block content_wrapper %}
+    <div class="post">
+        <h1 class="post-title">{{ page.title }}</h1>
+        <span class="post-date">{{ page.date | date("j F Y")}}</span>
+      <div>
+        {{ page.blocks.content|raw }}
+      </div>
+      <div class="related">
+         {% if page.categories %}
+          <p class="categories">
+            Categories:
+            {% for category in page.categories %}
+              <a href="{{ site.url }}/archive/categories/{{ category|url_encode(true) }}">{{ category }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+        {% endif %}
+
+				{% if page.tags %}
+          <p class="tags">
+            Tags:
+            {% for tag in page.tags %}
+              <a href="{{ site.url }}/archive/tags/{{ tag|url_encode(true) }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+        {% endif %}
+      </div><!-- end class related -->
+    </div><!-- end class post -->
+
+    {% include 'twitterButton.twig.html' %} {% include 'googlePlusButton.twig.html' %}
+
+    <!--{% include 'comments.twig.html' %}-->
+
+    <div class="pagination">
+
+      {% if page.previous_post %}
+        <a class="pagination-item newer" href="{{ site.url }}{{ page.previous_post.url }}">Previous Post</a>
+      {% else %}
+        <span class="pagination-item newer">Previous Post</span>
+      {% endif %}
+
+      {% if page.next_post %}
+        <a class="pagination-item older" href="{{ site.url }}{{ page.next_post.url }}">Next Post</a>
+      {% else %}
+        <span class="pagination-item older">Next Post</span>
+      {% endif %}
+
+    </div><!-- end class pagination -->
+
+{% endblock %}

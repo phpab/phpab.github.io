@@ -1,0 +1,27 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+		<h1><a href="/">{{ site.title }}</a></h1>
+    <p>{{ site.subtitle }}</p>
+  </div><!-- end class sidebar-item -->
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item{% if page.url == site.url %} active {% endif %}" href="/">Home</a>
+    <a class="sidebar-nav-item" href="{{ site.url }}/search">Search</a>
+		<a class="sidebar-nav-item" href="{{ site.url }}/archive">Posts Archive</a>
+		<a class="sidebar-nav-item" href="{{ site.url }}/archive/categories">Categories</a>
+		<a class="sidebar-nav-item" href="{{ site.url }}/archive/tags">Tags</a>
+		<a class="sidebar-nav-item" href="{{ site.url }}/about">About</a>
+		<a class="sidebar-nav-item" href="{{ site.url }}/credits">credits</a>
+  </nav><!-- end class sidebar-nav -->
+
+  <div class="sidebar-item">
+    <p>
+      &copy; {{ "now"|date("Y") }} All Rights Reserved.
+    </p>
+  </div><!-- end class sidebar-item -->
+</div><!-- end class sidebar -->

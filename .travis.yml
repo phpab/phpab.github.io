@@ -1,0 +1,26 @@
+language: php
+
+php:
+  - hhvm
+
+# This triggers builds to run on the new TravisCI infrastructure.
+# See: http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+sudo: false
+
+before_install:
+  - travis_retry composer self-update
+  - travis_retry gem install sass
+
+install:
+  - travis_retry curl -O https://download.sculpin.io/sculpin.phar
+  - travis_retry php sculpin.phar install
+
+script:
+  - php sculpin.phar generate --env=prod
+
+after_script:
+  - bin/publish.sh
+
+notifications:
+  email: false
+  irc: "irc.freenode.org#phpab"
