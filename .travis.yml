@@ -11,7 +11,7 @@ branches:
 
 before_install:
 - openssl aes-256-cbc -K $encrypted_d3ec3c12d2f5_key -iv $encrypted_d3ec3c12d2f5_iv
-  -in .travis/phpab.github.io.enc -out ~\/.ssh/phpab.github.io -d
+  -in .travis/phpab.github.io.enc -out ~/.ssh/phpab.github.io -d
 - echo -e "Host github.com\n\tIdentityFile ~/.ssh/phpab.github.io\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 - travis_retry composer self-update
 - travis_retry gem install sass
