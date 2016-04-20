@@ -14,10 +14,10 @@ before_install:
   -in phpab.github.io.enc -out .travis/phpab.github.io -d
 - travis_retry composer self-update
 - travis_retry gem install sass
-
-install:
 - travis_retry curl -O https://download.sculpin.io/sculpin.phar
 - travis_retry chmod +x sculpin.phar
+
+install:
 - travis_retry php sculpin.phar install
 
 script:
