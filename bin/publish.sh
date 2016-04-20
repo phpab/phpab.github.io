@@ -33,8 +33,6 @@ if [ $? -ne 0 ]; then echo -e "Failed to add files to commit."; exit 1; fi
 git commit -m "Publishing latest content from build $TRAVIS_COMMIT (Build #$TRAVIS_BUILD_NUMBER)"
 if [ $? -ne 0 ]; then echo -e "Failed to create commit."; exit 1; fi
 
-exit 0
-
 git push -fq origin master > /dev/null;
 if [ $? -ne 0 ]; then echo -e "Failed to push changes."; exit 1; fi
 
