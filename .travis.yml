@@ -17,10 +17,12 @@ before_install:
 
 install:
 - travis_retry curl -O https://download.sculpin.io/sculpin.phar
-- travis_retry php sculpin.phar install
+- travis_retry chmod +x sculpin.phar
+- travis_retry mv sculpin.phar ~/bin/sculpin
+- travis_retry sculpin install
 
 script:
-- php sculpin.phar generate --env=prod
+- sculpin generate --env=prod
 
 after_script:
 - bin/publish.sh
