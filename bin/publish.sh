@@ -12,14 +12,16 @@ eval "$(ssh-agent -s)"
 chmod 600 .travis/phpab.github.io
 ssh-add .travis/phpab.github.io
 
+if [ -d build ]; then
+    rm -rf build/
+fi
+
 # Clone the repository in a new directory and move the generated content to it.
-git clone git@github.com:phpab/phpab.github.io.git build
-cd build
-git checkout master
+git clone --branch master git@github.com:phpab/phpab.github.io.git build
 
 # Delete all the content and copy over the new content
-rm -r *
-cp -R ../output_prod/* ./
+rm -rf build/
+cp -R output_prod/* build/
 
 # Make sure Jeckyl does nothing:
 touch .nojekyll
@@ -30,6 +32,8 @@ if [ $? -ne 0 ]; then echo -e "Failed to add files to commit."; exit 1; fi
 
 git commit -m "Publishing latest content from build $TRAVIS_COMMIT (Build #$TRAVIS_BUILD_NUMBER)"
 if [ $? -ne 0 ]; then echo -e "Failed to create commit."; exit 1; fi
+
+exit 0
 
 git push -fq origin master > /dev/null;
 if [ $? -ne 0 ]; then echo -e "Failed to push changes."; exit 1; fi
