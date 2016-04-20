@@ -13,7 +13,7 @@ chmod 600 .travis/phpab.github.io
 ssh-add .travis/phpab.github.io
 
 # Clone the repository in a new directory and move the generated content to it.
-git clone https://github.com/phpab/phpab.github.io.git build
+git clone git@github.com:phpab/phpab.github.io.git build
 cd build
 git checkout master
 
