@@ -7,6 +7,11 @@ echo -e "Publishing: $TRAVIS_REPO_SLUG / $TRAVIS_PULL_REQUEST / $TRAVIS_BRANCH /
 git config --global user.email "Walter Tamboer"
 git config --global user.name "walter@tamboer.nl"
 
+# Setup SSH agent:
+eval "$(ssh-agent -s)"
+chmod 600 .travis/phpab.github.io
+ssh-add .travis/phpab.github.io
+
 # Clone the repository in a new directory and move the generated content to it.
 git clone https://github.com/phpab/phpab.github.io.git build
 cd build
