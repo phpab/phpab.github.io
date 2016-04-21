@@ -9,8 +9,8 @@ git config --global user.name "walter@tamboer.nl"
 
 # Setup SSH agent:
 eval "$(ssh-agent -s)"
-chmod 600 phpab.github.io
-ssh-add phpab.github.io
+chmod 600 .travis/phpab.github.io
+ssh-add .travis/phpab.github.io
 
 if [ -d build ]; then
     rm -rf build/
