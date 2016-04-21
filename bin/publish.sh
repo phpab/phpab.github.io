@@ -23,6 +23,9 @@ git clone --branch master git@github.com:phpab/phpab.github.io.git build
 rm -rf build/
 cp -R output_prod/* build/
 
+# Move into the cloned repository.
+cd build/
+
 # Make sure Jeckyl does nothing:
 touch .nojekyll
 
