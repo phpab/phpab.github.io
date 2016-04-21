@@ -20,7 +20,9 @@ fi
 git clone --branch master git@github.com:phpab/phpab.github.io.git build
 
 # Delete all the content and copy over the new content
-rm -r build/*
+cd build/
+rm -r *
+cd ..
 cp -R output_prod/* build/
 
 # Move into the cloned repository.
