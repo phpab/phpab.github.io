@@ -10,7 +10,7 @@ branches:
   - source
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_d3ec3c12d2f5_key -iv $encrypted_d3ec3c12d2f5_iv
+- openssl aes-256-cbc -K $encrypted_a1e45ec8d23f_key -iv $encrypted_a1e45ec8d23f_iv
   -in phpab.github.io.enc -out .travis/phpab.github.io -d
 - travis_retry composer self-update
 - travis_retry gem install sass
