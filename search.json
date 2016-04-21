@@ -1,0 +1,8 @@
+{"pages": [
+
+{"title": "Bring Back The Shutdown Dialog", "thumb": "/assets/icons/blurb.png", "text": "Bring Back The Shutdown Dialog When You Press The Mac Power Button.", "tags": " osx  mac ", "loc": "/archive/2014/08/13/shutdown-dialog"}, 
+{"title": "Installing Composer on your Mac", "thumb": "/assets/icons/blurb.png", "text": "How to set up composer on osx.", "tags": " composer  php  osx ", "loc": "/archive/2014/08/03/install-composer"}, 
+{"title": "Setting Up Node.js and npm", "thumb": "/assets/icons/blurb.png", "text": "How to set up node.js and npm on osx using homebrew.", "tags": " node.js  npm  osx ", "loc": "/archive/2014/08/02/node-js-and-npm"}, 
+{"title": "Applications I Use for Development", "thumb": "/assets/icons/blurb.png", "text": "useful web development applications.", "tags": " dropbox  google drive  evernote  1password  light paper  atom  osx ", "loc": "/archive/2014/07/13/apps-i-use"}
+
+]}
