@@ -18,7 +18,7 @@ before_install:
 - travis_retry chmod +x sculpin.phar
 
 install:
-- travis_retry php sculpin.phar install
+- travis_retry php sculpin.phar install -n
 
 script:
 - php sculpin.phar generate --env=prod
