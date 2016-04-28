@@ -1,3 +1,0 @@
-sculpin_content_types:
-    posts:
-        permalink: archive/:year/:month/:day/:filename/
