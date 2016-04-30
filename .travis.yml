@@ -22,8 +22,8 @@ before_install:
 - ssh-add .travis/phpab.github.io
 
 script:
-- couscous generate
-- couscous deploy --branch=master
+- vendor/bin/couscous generate
+- vendor/bin/couscous deploy --branch=master
 
 notifications:
   email: false
