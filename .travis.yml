@@ -12,14 +12,17 @@ branches:
 before_install:
 - openssl aes-256-cbc -K $encrypted_d3ec3c12d2f5_key -iv $encrypted_d3ec3c12d2f5_iv
   -in .travis/phpab.github.io.enc -out .travis/phpab.github.io -d
-- travis_retry composer self-update
-- travis_retry composer install
-- travis_retry gem install sass
-- git config --global user.email "Walter Tamboer"
-- git config --global user.name "walter@tamboer.nl"
 - eval "$(ssh-agent -s)"
 - chmod 600 .travis/phpab.github.io
 - ssh-add .travis/phpab.github.io
+- git config --global user.email "Walter Tamboer"
+- git config --global user.name "walter@tamboer.nl"
+- travis_retry composer self-update
+
+before_script:
+- travis_retry gem install sass
+- travis_retry npm install -g bower
+- travis_retry composer install
 
 script:
 - vendor/bin/couscous generate
