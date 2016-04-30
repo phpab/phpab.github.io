@@ -19,8 +19,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
     <link href="http://phpab.github.io/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="http://phpab.github.io/vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
     <link href="http://phpab.github.io/css/website.css" rel="stylesheet" type="text/css">
 
+    <script type="text/javascript" src="http://phpab.github.io/vendor/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="http://phpab.github.io/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script>
@@ -60,22 +62,22 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
-                <ul>
+                <ul class="nav nav-pills nav-stacked">
                                             <li>
                             Introduction
 
-                            <ul>
-                                                                    <li class="">
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li role="presentation" class="">
                                         <a href="http://phpab.github.io/docs/getting-started.html">
                                             Getting started
                                         </a>
                                     </li>
-                                                                    <li class="">
+                                                                    <li role="presentation" class="">
                                         <a href="http://phpab.github.io/docs/understanding-ab-testing.html">
                                             Understanding A/B testing
                                         </a>
                                     </li>
-                                                                    <li class="">
+                                                                    <li role="presentation" class="">
                                         <a href="http://phpab.github.io/docs/best-practices.html">
                                             Best practices guide
                                         </a>
@@ -85,28 +87,28 @@
                                             <li>
                             Components
 
-                            <ul>
-                                                                    <li class="">
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li role="presentation" class="">
                                         <a href="http://phpab.github.io/docs/components/analytics.html">
                                             Analytics
                                         </a>
                                     </li>
-                                                                    <li class="">
+                                                                    <li role="presentation" class="">
                                         <a href="http://phpab.github.io/docs/components/events.html">
                                             Events
                                         </a>
                                     </li>
-                                                                    <li class="">
+                                                                    <li role="presentation" class="">
                                         <a href="http://phpab.github.io/docs/components/participation.html">
                                             Participation
                                         </a>
                                     </li>
-                                                                    <li class="">
+                                                                    <li role="presentation" class="">
                                         <a href="http://phpab.github.io/docs/components/storage.html">
                                             Storage
                                         </a>
                                     </li>
-                                                                    <li class="">
+                                                                    <li role="presentation" class="">
                                         <a href="http://phpab.github.io/docs/components/variants.html">
                                             Variants
                                         </a>
@@ -116,18 +118,18 @@
                                             <li>
                             Frameworks Integrations
 
-                            <ul>
-                                                                    <li class="">
+                            <ul class="nav nav-pills nav-stacked">
+                                                                    <li role="presentation" class="">
                                         <a href="http://phpab.github.io/docs/frameworks/symfony2.html">
                                             Symfony 2
                                         </a>
                                     </li>
-                                                                    <li class="">
+                                                                    <li role="presentation" class="">
                                         <a href="http://phpab.github.io/docs/frameworks/wordpress.html">
                                             Wordpress
                                         </a>
                                     </li>
-                                                                    <li class="">
+                                                                    <li role="presentation" class="">
                                         <a href="http://phpab.github.io/docs/frameworks/zf2.html">
                                             Zend Framework 2
                                         </a>
@@ -146,12 +148,23 @@
                     </div>
 
                     <h1 id="storage-types">Storage types</h1>
+<p>When a user visits the application, the participation manager decides whether or not
+the user will participate in a test. And if so, in which test the user will
+participate. That choice will be remembered so that the user will have the same
+experience even when the page is reloaded.</p>
+<p>In order to remember that choice <em>phpab</em> make use of storage providers. You can
+configure the library to use a specific storage provider.</p>
 <h2 id="cookie">Cookie</h2>
-<p>TODO</p>
+<p>The <code>Cookie</code> storage provider saves the tests and variants in which the user
+participates, in a cookie. Only one cookie is used and you can configure the name
+and lifetime of it.</p>
 <h2 id="session">Session</h2>
-<p>TODO</p>
+<p>The <code>Session</code> storage provider remembers the choices just for the current session. When a new session
+is generated, the choices of the tests are cleared and phpab will re-evaluate if the user should participate.</p>
 <h2 id="runtime">Runtime</h2>
-<p>TODO</p>
+<p>The <code>Runtime</code> storage provider remembers the choices only for the current request. It
+could be useful to use this provider for testing or development. In production you
+should avoid this storage provider.</p>
                 </article>
             </div>
         </div>
