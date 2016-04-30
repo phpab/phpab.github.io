@@ -13,8 +13,6 @@ include:
   - source/
 
 exclude:
-  - .bowerrc
-  - bower.json
   - template/
   - vendor/
 
