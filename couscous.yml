@@ -1,0 +1,62 @@
+title: phpab
+subTitle: The A/B testing framework for PHP
+
+baseUrl: http://phpab.github.io
+
+branch: master
+
+template:
+  directory: template
+  index: source/index.md
+
+include:
+  - source/
+
+exclude:
+  - template
+  - vendor
+
+menu:
+  items:
+    introduction:
+      section: Introduction
+      items:
+        getting-started:
+          text: Getting started
+          url: docs/getting-started.html
+        understanding-ab-testing:
+          text: Understanding A/B testing
+          url: docs/understanding-ab-testing.html
+        best-practices:
+          text: Best practices guide
+          url: docs/best-practices.html
+    components:
+      section: Components
+      items:
+        analytics:
+          text: Analytics
+          url: docs/components/analytics.html
+        events:
+          text: Events
+          url: docs/components/events.html
+        participation:
+          text: Participation
+          url: docs/components/participation.html
+        storage:
+          text: Storage
+          url: docs/components/storage.html
+        variants:
+          text: Variants
+          url: docs/components/variants.html
+    frameworks:
+      section: Frameworks Integrations
+      items:
+        symfony2:
+          text: Symfony 2
+          url: docs/frameworks/symfony2.html
+        wordpress:
+          text: Wordpress
+          url: docs/frameworks/wordpress.html
+        zf2:
+          text: Zend Framework 2
+          url: docs/frameworks/zf2.html

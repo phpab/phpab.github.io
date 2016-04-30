@@ -1,5 +1,1 @@
-.DS_Store
-.sculpin/
-output_dev/
-output_prod/
-source/components/
+.couscous/
