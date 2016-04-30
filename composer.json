@@ -1,0 +1,8 @@
+{
+    "name": "phpab/phpab.github.io",
+    "description": "The websiite of phpab/phpab.",
+    "license": "MIT",
+    "require": {
+        "couscous/couscous": "^1.5"
+    }
+}
