@@ -7,9 +7,19 @@ title: Variants
 
 ## Types
 
+### Simple
+
+The simple variant type has no extra logic. It's simply activated and the name is
+stored in the [storage](storage.html).
+
+```php
+$test = new \PhpAb\Test\Test('foo_test');
+$test->addVariant(new \PhpAb\Variant\SimpleVariant('_control'));
+```
+
 ### Callback
 
-WHen the callback variant is activated, it will trigger a callback function. You can
+When the callback variant is activated, it will trigger a callback function. You can
 execute logic at that moment.
 
 ```php
@@ -20,16 +30,6 @@ $test->addVariant(new \PhpAb\Variant\CallbackVariant('_control', function () {
 $test->addVariant(new \PhpAb\Variant\CallbackVariant('v2', function () {
     echo 'v2';
 }));
-```
-
-### Simple
-
-The simple variant type has no extra logic. It's simply activated and the name is
-stored in the [storage](storage.html).
-
-```php
-$test = new \PhpAb\Test\Test('foo_test');
-$test->addVariant(new \PhpAb\Variant\SimpleVariant('_control'));
 ```
 
 ### Custom Type

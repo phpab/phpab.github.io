@@ -15,11 +15,11 @@ This is the documentation index. Please choose your topic.
 
 ### Components
 
-* [Analytics](analytics.md)
-* [Events](events.md)
-* [Participation](participation.md)
-* [Storage](storage.md)
-* [Variants](variants.md)
+* [Analytics](components/analytics.md)
+* [Events](components/events.md)
+* [Participation](components/participation.md)
+* [Storage](components/storage.md)
+* [Variants](components/variants.md)
 
 ### Frameworks Integrations
 
