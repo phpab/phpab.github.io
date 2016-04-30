@@ -1,0 +1,41 @@
+{% extends "default.twig" %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <ul>
+                    {% for itemId, item in menu.items %}
+                        <li>
+                            {{ item.section }}
+
+                            <ul>
+                                {% for itemId, item in item.items %}
+                                    <li class="{{ itemId == current_menu ? 'active' }}">
+                                        <a href="{{ item.absoluteUrl|default(baseUrl ~ '/' ~ item.url) }}">
+                                            {{ item.text|raw }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-10">
+                <article>
+                    <div>
+                        <a href="https://github.com/phpab/phpab.github.io/blob/source/source/{{ currentFile }}"
+                           class="btn btn-default btn-sm">
+                            Edit this page on GitHub
+                        </a>
+                    </div>
+
+                    {{ content|raw }}
+                </article>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
