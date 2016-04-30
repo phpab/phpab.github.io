@@ -15,8 +15,8 @@ before_install:
 - eval "$(ssh-agent -s)"
 - chmod 600 .travis/phpab.github.io
 - ssh-add .travis/phpab.github.io
-- git config --global user.email "Walter Tamboer"
-- git config --global user.name "walter@tamboer.nl"
+- git config --global user.email "phpab"
+- git config --global user.name "phpab.phpab@gmail.com"
 - travis_retry composer self-update
 
 before_script:
