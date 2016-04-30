@@ -24,6 +24,9 @@ menu:
         getting-started:
           text: Getting started
           url: docs/getting-started.html
+        library-layout:
+          text: Library layout
+          url: docs/library-layout.html
         understanding-ab-testing:
           text: Understanding A/B testing
           url: docs/understanding-ab-testing.html
