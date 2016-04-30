@@ -141,8 +141,13 @@
 
                     <h1 id="variants">Variants</h1>
 <h2 id="types">Types</h2>
+<h3 id="simple">Simple</h3>
+<p>The simple variant type has no extra logic. It's simply activated and the name is
+stored in the <a href="storage.html">storage</a>.</p>
+<pre><code class="language-php">$test = new \PhpAb\Test\Test('foo_test');
+$test-&gt;addVariant(new \PhpAb\Variant\SimpleVariant('_control'));</code></pre>
 <h3 id="callback">Callback</h3>
-<p>WHen the callback variant is activated, it will trigger a callback function. You can
+<p>When the callback variant is activated, it will trigger a callback function. You can
 execute logic at that moment.</p>
 <pre><code class="language-php">$test = new \PhpAb\Test\Test('foo_test');
 $test-&gt;addVariant(new \PhpAb\Variant\CallbackVariant('_control', function () {
@@ -151,11 +156,6 @@ $test-&gt;addVariant(new \PhpAb\Variant\CallbackVariant('_control', function () 
 $test-&gt;addVariant(new \PhpAb\Variant\CallbackVariant('v2', function () {
     echo 'v2';
 }));</code></pre>
-<h3 id="simple">Simple</h3>
-<p>The simple variant type has no extra logic. It's simply activated and the name is
-stored in the <a href="storage.html">storage</a>.</p>
-<pre><code class="language-php">$test = new \PhpAb\Test\Test('foo_test');
-$test-&gt;addVariant(new \PhpAb\Variant\SimpleVariant('_control'));</code></pre>
 <h3 id="custom-type">Custom Type</h3>
 <p>A custom variant type can easily be created by implementing <code>PhpAb\Variant\VariantInterface</code></p>
 <h2 id="choosers">Choosers</h2>
