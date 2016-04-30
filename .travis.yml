@@ -26,7 +26,7 @@ before_script:
 
 script:
 - vendor/bin/couscous generate
-- vendor/bin/couscous deploy --branch=master
+- vendor/bin/couscous deploy --branch=master --repository=git@github.com:phpab/phpab.github.io.git
 
 notifications:
   email: false
