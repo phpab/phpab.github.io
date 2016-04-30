@@ -199,6 +199,69 @@ storage type:</p>
 <ul>
 <li><code>name</code>: The name of the session. This value is required.</li>
 </ul>
+<h3 id="phpabtests">['phpab']['tests']</h3>
+<p>This is a map with tests that exist within the application. The key of each element
+represents the name of the test. The value should be an array with options. A test
+has the following options:</p>
+<ul>
+<li><code>filter</code>: The name of the service that loads the participation filter.</li>
+<li><code>variant_chooser</code>: The name of the service that loads the variant chooser.</li>
+<li><code>variants</code>: A map with variants that can be chosen from.</li>
+</ul>
+<p>The <code>filter</code> and <code>variant_chooser</code> work the same as the default filter and default
+variant chooser.</p>
+<p>The map with variants is an array where each key represents the name of the variant.
+The value of the variant is an array with variant options. Each variant can have
+one of the following options:</p>
+<ul>
+<li><code>type</code>: The type of the variant.</li>
+<li><code>options</code>: An array with options for the variant type.</li>
+</ul>
+<h2 id="variants">Variants</h2>
+<p>The module supports the following variant types:</p>
+<h3 id="callback">Callback</h3>
+<p>The callback variant will invoke a callback when activated. It has one required option
+called <code>callback</code>:</p>
+<pre><code class="language-php">'my-variant' =&gt; [
+    'type' =&gt; 'callback',
+    'options' =&gt; [
+        'callback' =&gt; function() {
+        },
+    ],
+],</code></pre>
+<h3 id="event-manager">Event Manager</h3>
+<p>The event manager variant will attach a listener to an event manager when executed.
+Since the phpab engine is started at the startup of the application, you can listen
+to every event.</p>
+<pre><code class="language-php">'my-variant' =&gt; [
+    'type' =&gt; 'event_manager',
+    'options' =&gt; [
+        'event_manager' =&gt; 'my_event_manager',
+        'event' =&gt; 'my_event',
+        'priority' =&gt; 100,
+        'callback' =&gt; function() {
+        },
+    ],
+],</code></pre>
+<p>Only the <code>event</code> and the <code>callback</code> options are required. When no <code>event_manager</code>
+option is provided, the event manager from the application is used. The default value
+for the priority option is <code>0</code>.</p>
+<p>When the callback is a string and is not a callable function, it will be loaded
+from the service manager. In other words, you can specify a valid service name as
+well.</p>
+<h3 id="simple">Simple</h3>
+<p>The simple variant will note execute any further logic when activated.</p>
+<pre><code class="language-php">'my-variant' =&gt; [
+    'type' =&gt; 'simple',
+],</code></pre>
+<h3 id="service-manager">Service Manager</h3>
+<p>The service manager variant is a fallback variant. When the type is not known, it will
+try to load the variant from the service manager with the type as the service name.</p>
+<pre><code class="language-php">'my-variant' =&gt; [
+    'type' =&gt; 'my_service_name',
+],</code></pre>
+<p>Alternatively you can specify the service name straight away like this:</p>
+<pre><code class="language-php">'my-variant' =&gt; 'my_service_name',</code></pre>
 <h2 id="configuration-example">Configuration Example</h2>
 <pre><code class="language-php">&lt;?php
 return [
