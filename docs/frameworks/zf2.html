@@ -62,85 +62,77 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
-                <ul class="nav nav-pills nav-stacked">
-                                            <li>
-                            Introduction
+                                    <strong>Introduction</strong>
 
-                            <ul class="nav nav-pills nav-stacked">
-                                                                    <li role="presentation" class="">
-                                        <a href="http://phpab.github.io/docs/getting-started.html">
-                                            Getting started
-                                        </a>
-                                    </li>
-                                                                    <li role="presentation" class="">
-                                        <a href="http://phpab.github.io/docs/understanding-ab-testing.html">
-                                            Understanding A/B testing
-                                        </a>
-                                    </li>
-                                                                    <li role="presentation" class="">
-                                        <a href="http://phpab.github.io/docs/best-practices.html">
-                                            Best practices guide
-                                        </a>
-                                    </li>
-                                                            </ul>
-                        </li>
-                                            <li>
-                            Components
+                    <ul class="nav nav-pills nav-stacked" style="margin-bottom: 20px;">
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/getting-started.html">
+                                    Getting started
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/understanding-ab-testing.html">
+                                    Understanding A/B testing
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/best-practices.html">
+                                    Best practices guide
+                                </a>
+                            </li>
+                                            </ul>
+                                    <strong>Components</strong>
 
-                            <ul class="nav nav-pills nav-stacked">
-                                                                    <li role="presentation" class="">
-                                        <a href="http://phpab.github.io/docs/components/analytics.html">
-                                            Analytics
-                                        </a>
-                                    </li>
-                                                                    <li role="presentation" class="">
-                                        <a href="http://phpab.github.io/docs/components/events.html">
-                                            Events
-                                        </a>
-                                    </li>
-                                                                    <li role="presentation" class="">
-                                        <a href="http://phpab.github.io/docs/components/participation.html">
-                                            Participation
-                                        </a>
-                                    </li>
-                                                                    <li role="presentation" class="">
-                                        <a href="http://phpab.github.io/docs/components/storage.html">
-                                            Storage
-                                        </a>
-                                    </li>
-                                                                    <li role="presentation" class="">
-                                        <a href="http://phpab.github.io/docs/components/variants.html">
-                                            Variants
-                                        </a>
-                                    </li>
-                                                            </ul>
-                        </li>
-                                            <li>
-                            Frameworks Integrations
+                    <ul class="nav nav-pills nav-stacked" style="margin-bottom: 20px;">
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/components/analytics.html">
+                                    Analytics
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/components/events.html">
+                                    Events
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/components/participation.html">
+                                    Participation
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/components/storage.html">
+                                    Storage
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/components/variants.html">
+                                    Variants
+                                </a>
+                            </li>
+                                            </ul>
+                                    <strong>Frameworks Integrations</strong>
 
-                            <ul class="nav nav-pills nav-stacked">
-                                                                    <li role="presentation" class="">
-                                        <a href="http://phpab.github.io/docs/frameworks/symfony2.html">
-                                            Symfony 2
-                                        </a>
-                                    </li>
-                                                                    <li role="presentation" class="">
-                                        <a href="http://phpab.github.io/docs/frameworks/wordpress.html">
-                                            Wordpress
-                                        </a>
-                                    </li>
-                                                                    <li role="presentation" class="">
-                                        <a href="http://phpab.github.io/docs/frameworks/zf2.html">
-                                            Zend Framework 2
-                                        </a>
-                                    </li>
-                                                            </ul>
-                        </li>
-                                    </ul>
-            </div>
+                    <ul class="nav nav-pills nav-stacked" style="margin-bottom: 20px;">
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/frameworks/symfony2.html">
+                                    Symfony 2
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/frameworks/wordpress.html">
+                                    Wordpress
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/frameworks/zf2.html">
+                                    Zend Framework 2
+                                </a>
+                            </li>
+                                            </ul>
+                            </div>
             <div class="col-md-10">
                 <article>
-                    <div>
+                    <div class="pull-right">
                         <a href="https://github.com/phpab/phpab.github.io/blob/source/source/docs/frameworks/zf2.md"
                            class="btn btn-default btn-sm">
                             Edit this page on GitHub
@@ -148,7 +140,91 @@
                     </div>
 
                     <h1 id="zend-framework-2">Zend Framework 2</h1>
-<p>TODO</p>
+<p>We have implemented a module which you can hook into your Zend Framework 2 application.
+This module basically wraps the <a href="https://github.com/phpab/phpab">phpab/phpab</a> library
+and adds some additional functionality which makes it possible to fully integrate the
+library into your application while keeping support for all ZF2 functionality.</p>
+<h2 id="installation">Installation</h2>
+<p>Simply install the module using <a href="https://getcomposer.org">Composer</a>:</p>
+<pre><code class="language-bash">composer require phpab/phpab-module</code></pre>
+<p>Next make sure the module is actually loaded by adding <code>PhpAbModule</code> to application
+config in <em>config/application.config.php</em>.</p>
+<p>Installation without <a href="https://getcomposer.org">Composer</a>: is not officially supported.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Copy over the dist configuration file that is provided in the module.</p>
+<pre><code class="language-bash">cp vendor/phpab/phpab-module/config/phpab.global.php.dist config/autoload/phpab.global.php</code></pre>
+<p>You can edit this file to your needs.</p>
+<h2 id="configuration-options">Configuration Options</h2>
+<h3 id="phpabanalytics_collector">['phpab']['analytics_collector']</h3>
+<p>The name of the service that loads the data collector. A data collector collects
+information about which tests and variants are started for a user.</p>
+<p>The default value is <code>phpab.default_analytics_collector</code>. You can either change
+this value or change the service that gets loaded in the service manager.</p>
+<h3 id="phpabanalytics_handler">['phpab']['analytics_handler']</h3>
+<p>The name of the service that loads the analytics handler. A handler uses the
+collected data and writes it away.</p>
+<p>The default value is <code>phpab.default_analytics_handler</code>. You can either change
+this value or change the service that gets loaded in the service manager.</p>
+<h3 id="phpabdefault_filter">['phpab']['default_filter']</h3>
+<p>When creating tests, you pass a filter which decides if a user should participate.
+When no filter is passed to tests, the default filter is used. That default filter
+can be configured with this configuration option.</p>
+<p>This is the name of the service that loads the default filter. The default value is
+<code>phpab.default_filter</code>. You can either change this value or change the service that
+gets loaded in the service manager.</p>
+<h3 id="phpabdefault_variant_chooser">['phpab']['default_variant_chooser']</h3>
+<p>Like with the <code>['phpab']['default_filter']</code> option, the same applies for default
+variant chooser.</p>
+<p>This is the name of the service that loads the default filter. The default value is
+<code>phpab.default_filter</code>. You can either change this value or change the service that
+gets loaded in the service manager.</p>
+<h3 id="phpabstorage">['phpab']['storage']</h3>
+<p>The storage type to use. Supported values are:</p>
+<ul>
+<li><code>cookie</code>: Stores the participations in a cookie;</li>
+<li><code>runtime</code>: Stores the participations only for the current request;</li>
+<li><code>session</code>: Stores the participations in a session.</li>
+</ul>
+<h3 id="phpabstorage_options">['phpab']['storage_options']</h3>
+<p>An array with options for the storage type. Different options are required per
+storage type:</p>
+<h4 id="cookie">Cookie</h4>
+<ul>
+<li><code>name</code>: The name of the cookie. This value is required.</li>
+<li><code>ttl</code>: The lifetime of the cookie in seconds. This value is required.</li>
+</ul>
+<h4 id="runtime">Runtime</h4>
+<p>This storage has no options.</p>
+<h4 id="session">Session</h4>
+<ul>
+<li><code>name</code>: The name of the session. This value is required.</li>
+</ul>
+<h2 id="configuration-example">Configuration Example</h2>
+<pre><code class="language-php">&lt;?php
+return [
+    'phpab' =&gt; [
+        'storage' =&gt; 'cookie',
+        'storage_options' =&gt; [
+            'name' =&gt; 'phpab',
+            'ttl' =&gt; 3600,
+        ],
+        'tests' =&gt; [
+            'button-test' =&gt; [
+                'filter' =&gt; 'phpab.default_filter',
+                'variant_chooser' =&gt; 'phpab.default_variant_chooser',
+                'variants' =&gt; [
+                    '_control' =&gt; [
+                        'type' =&gt; 'simple',
+                    ],
+                    'alternative' =&gt; [
+                        'type' =&gt; 'simple'
+                    ],
+                ],
+            ],
+        ],
+    ],
+];
+</code></pre>
                 </article>
             </div>
         </div>
