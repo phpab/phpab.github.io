@@ -21,7 +21,7 @@ composer require phpab/phpab-module
 Next make sure the module is actually loaded by adding `PhpAbModule` to application
 config in *config/application.config.php*.
 
-Installation without [Composer](https://getcomposer.org): is not officially supported.
+Installation without [Composer](https://getcomposer.org) is not officially supported.
 
 ## Configuration
 
