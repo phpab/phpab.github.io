@@ -5,14 +5,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
-                <ul>
+                <ul class="nav nav-pills nav-stacked">
                     {% for itemId, item in menu.items %}
                         <li>
                             {{ item.section }}
 
-                            <ul>
+                            <ul class="nav nav-pills nav-stacked">
                                 {% for itemId, item in item.items %}
-                                    <li class="{{ itemId == current_menu ? 'active' }}">
+                                    <li role="presentation" class="{{ itemId == current_menu ? 'active' }}">
                                         <a href="{{ item.absoluteUrl|default(baseUrl ~ '/' ~ item.url) }}">
                                             {{ item.text|raw }}
                                         </a>
