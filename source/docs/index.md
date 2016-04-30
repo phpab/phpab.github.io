@@ -24,8 +24,8 @@ This is the documentation index. Please choose your topic.
 ### Frameworks Integrations
 
 - [Symfony 2](frameworks/symfony2.md)
-- [Zend Framework 2](frameworks/zf2.md)
 - [Wordpress](frameworks/wordpress.md)
+- [Zend Framework 2](frameworks/zf2.md)
 
 ### License
 
