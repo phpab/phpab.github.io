@@ -97,9 +97,3 @@ $engine->start();
 $analytics = new \PhpAb\Analytics\Renderer\GoogleUniversalAnalytics($analyticsData->getTestsData());
 echo $analytics->getScript();
 ```
-
-## What's next
-
-You can head over to [the documentation index](index.md). You can also read
-the [Best practices guide](best-practices.md), it's a good way to get a good view on when to
-use each of phpab's features.

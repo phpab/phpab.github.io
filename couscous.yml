@@ -30,9 +30,6 @@ menu:
         understanding-ab-testing:
           text: Understanding A/B testing
           url: docs/understanding-ab-testing.html
-        best-practices:
-          text: Best practices guide
-          url: docs/best-practices.html
     components:
       section: Components
       items:

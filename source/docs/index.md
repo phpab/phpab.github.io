@@ -12,7 +12,6 @@ This is the documentation index. Please choose your topic.
 * [Getting started](getting-started.md)
 * [Understanding A/B testing](understanding-ab-testing.md)
 * [Library layout](library-layout.md)
-* [Best practices guide](best-practices.md)
 
 ### Components
 
