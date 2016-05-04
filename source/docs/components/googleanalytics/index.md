@@ -1,3 +1,8 @@
+---
+layout: documentation
+title: Google Analytics
+---
+
 # Google Analytics
 
 PhpAb supports both **Classic Google Analytics Experiments** (legacy) and **Universal Analytics Experiments** (new version).
@@ -16,6 +21,6 @@ Now that you are familiar with it, let's summarize the steps required to use Php
 * In GA: Integrate Google Analytics tracking
 * In GA: Set your Goals in control panel
 * In GA: Create experiments against a created goal.
-* In PhpAB: Create tests that have as identifier the code provided by GA for the experiment.
+* In PhpAB: Create tests that have as identifier the **Experiment ID** provided by GA for the experiment.
 * Run the PhpAb
 * Use GoogleClassicAnalytics or GoogleUniversalAnalytics to render the JavaScript that will let Google Analytics know, which variant users are expericing.
