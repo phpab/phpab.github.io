@@ -1,3 +1,8 @@
+---
+layout: documentation
+title: Google Analytics
+---
+
 # Google Analytics
 
 PhpAb supports both **Classic Google Analytics Experiments** (legacy) and **Universal Analytics Experiments** (new version).
