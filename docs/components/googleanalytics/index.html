@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>phpab - The A/B testing framework for PHP.</title>
+    <title>Google Analytics - The A/B testing framework for PHP.</title>
 
     <meta name="description" content="phpab is a A/B testing framework which can be used to perform multivariate testing.">
     <meta name="keywords" content="ab testing,phpab,multivariate,framework,tests,test">
@@ -34,6 +34,7 @@
         ga('create', 'UA-76115045-1', 'auto');
         ga('send', 'pageview');
     </script>
+    <script src="//www.google-analytics.com/cx/api.js"></script>
 </head>
 <body>
 
@@ -58,8 +59,88 @@
     </div>
 </nav>
 
-    <article class="container-fluid">
-        <h1 id="google-analytics">Google Analytics</h1>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                                    <strong>Introduction</strong>
+
+                    <ul class="nav nav-pills nav-stacked" style="margin-bottom: 20px;">
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/getting-started.html">
+                                    Getting started
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/library-layout.html">
+                                    Library layout
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/understanding-ab-testing.html">
+                                    Understanding A/B testing
+                                </a>
+                            </li>
+                                            </ul>
+                                    <strong>Components</strong>
+
+                    <ul class="nav nav-pills nav-stacked" style="margin-bottom: 20px;">
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/components/analytics.html">
+                                    Analytics
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/components/events.html">
+                                    Events
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/components/participation.html">
+                                    Participation
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/components/storage.html">
+                                    Storage
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/components/variants.html">
+                                    Variants
+                                </a>
+                            </li>
+                                            </ul>
+                                    <strong>Frameworks Integrations</strong>
+
+                    <ul class="nav nav-pills nav-stacked" style="margin-bottom: 20px;">
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/frameworks/symfony2.html">
+                                    Symfony 2
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/frameworks/wordpress.html">
+                                    Wordpress
+                                </a>
+                            </li>
+                                                    <li role="presentation" class="">
+                                <a href="http://phpab.github.io/docs/frameworks/zf2.html">
+                                    Zend Framework 2
+                                </a>
+                            </li>
+                                            </ul>
+                            </div>
+            <div class="col-md-10">
+                <article>
+                    <div class="pull-right">
+                        <a href="https://github.com/phpab/phpab.github.io/blob/source/source/docs/components/googleanalytics/index.md"
+                           class="btn btn-default btn-sm">
+                            Edit this page on GitHub
+                        </a>
+                    </div>
+
+                    <h1 id="google-analytics">Google Analytics</h1>
 <p>PhpAb supports both <strong>Classic Google Analytics Experiments</strong> (legacy) and <strong>Universal Analytics Experiments</strong> (new version).
 Google provides different ways to interact with it. This refers to the <strong>server-side</strong> implementation.</p>
 <p>To implement any of the two we assume:</p>
@@ -78,11 +159,15 @@ Read more:</p>
 <li>In GA: Integrate Google Analytics tracking</li>
 <li>In GA: Set your Goals in control panel</li>
 <li>In GA: Create experiments against a created goal.</li>
-<li>In PhpAB: Create tests that have as identifier the code provided by GA for the experiment.</li>
+<li>In PhpAB: Create tests that have as identifier the <strong>Experiment ID</strong> provided by GA for the experiment.</li>
 <li>Run the PhpAb</li>
 <li>Use GoogleClassicAnalytics or GoogleUniversalAnalytics to render the JavaScript that will let Google Analytics know, which variant users are expericing.</li>
 </ul>
-    </article>
+                </article>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 </html>
