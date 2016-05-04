@@ -7,7 +7,8 @@ title: Analytics
 
 ## Google Analytics
 
-TODO
+Read about how to use Google Analytics to read the results of your tests.
+[Read more](googleanalytics/index.md)
 
 ### Google Classic Analytics
 
