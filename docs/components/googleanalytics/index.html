@@ -157,13 +157,23 @@ Read more:</p>
 </ul>
 <p>Now that you are familiar with it, let's summarize the steps required to use PhpAb with Google Analytics (GA):</p>
 <ul>
-<li>In GA: Integrate Google Analytics tracking</li>
-<li>In GA: Set your Goals in control panel</li>
-<li>In GA: Create experiments against a created goal.</li>
+<li>In GA: <a href="#integrate-google-analytics-tracking">Integrate Google Analytics tracking</a></li>
+<li>In GA: <a href="#create-goals">Set the goal</a> your test will try to improve.</li>
+<li>In GA: Create experiments against a goal.</li>
 <li>In PhpAB: Create tests that have as identifier the <strong>Experiment ID</strong> provided by GA for the experiment.</li>
 <li>Run the PhpAb</li>
 <li>Use GoogleClassicAnalytics or GoogleUniversalAnalytics to render the JavaScript that will let Google Analytics know, which variant users are expericing.</li>
 </ul>
+<h2 id="integrate-google-analytics-tracking">Integrate Google Analytics Tracking</h2>
+<p>Follow <a href="https://support.google.com/analytics/answer/1008080?hl=en">Google's instructions</a> to set up an account.</p>
+<h2 id="create-goals">Create goals</h2>
+<blockquote>
+<p>&quot;You can't improve what you can't measure.&quot;</p>
+</blockquote>
+<p>The whole purpose of running tests is to see if a variation performs better than another variation. If it does, adopt it and start again.
+However, &quot;better&quot; might have different meanings. You might want to test the engagement of users, the amount of people that visit a page or, of course, how many buy a product.
+This is why setting your goals is mandatory in Google Analytics.
+Follow up <a href="https://support.google.com/analytics/answer/1032415?hl=en">these instructions</a> to set them.</p>
                 </article>
             </div>
         </div>
