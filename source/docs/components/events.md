@@ -47,13 +47,21 @@ $subscriber = new \PhpAb\Analytics\DataCollector\Google();
 $dispatcher->addSubscriber($subscriber);
 ```
 
-### Symfony Bridge
+### Symfony bridge
 
-TODO
+The Symfony bridge can be used to create an event dispatcher from the
+[symfony/event-dispatcher](https://github.com/symfony/event-dispatcher)
+library. It does not have support for
+[SubscriberInterface]()
+at the moment.
 
-### Zend Framework
+### Zend Framework bridge
 
-TODO
+The Zend Framwork bridge can be used to create an event dispatcher from the
+[zendframework/zend-eventmanager](https://github.com/zendframework/zend-eventmanager)
+library. It does not have support for
+[SubscriberInterface]()
+at the moment.
 
 ## Event Types
 
