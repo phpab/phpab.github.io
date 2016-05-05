@@ -12,31 +12,44 @@
 
     <title>Understanding A/B testing - The A/B testing framework for PHP.</title>
 
-    <meta name="description" content="phpab is a A/B testing framework which can be used to perform multivariate testing.">
+    <meta name="description"
+          content="phpab is a A/B testing framework which can be used to perform multivariate testing.">
     <meta name="keywords" content="ab testing,phpab,multivariate,framework,tests,test">
     <meta name="application-name" content="phpab">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link href="http://phpab.github.io/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="http://phpab.github.io/css/website.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <link rel="stylesheet" href="http://phpab.github.io/css/website.css">
 
-    <script src="http://phpab.github.io/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="http://phpab.github.io/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"
+            integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+            integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
 
     <script>
-        $(function() {
+        $(function () {
             hljs.initHighlightingOnLoad();
         });
     </script>
 
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-76115045-1', 'auto');
         ga('send', 'pageview');
@@ -49,7 +62,8 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -162,6 +176,44 @@ you can visit.</p>
         </div>
     </div>
 
+
+<footer>
+    <div class="container">
+        <p>
+            For questions, bugs or if you want to let us know how much you appreciate this library,
+            please <a href="https://github.com/phpab/phpab/issues/new">create an issue</a>
+            or chat with us on <a href="https://gitter.im/phpab">Gitter</a>.
+        </p>
+        <p>
+        </p>
+        <p>
+            Created by
+            <a href="http://waltertamboer.nl/">Walter Tamboer</a>,
+            <a href="https://github.com/pachico">Mariano Benítez Mulet</a>,
+            <a href="https://github.com/psren">Patrick Heller</a>
+            and all <a href="https://github.com/phpab/phpab/graphs/contributors">contributors</a>
+        </p>
+        <p>
+            Website generated with <a href="http://couscous.io">Couscous</a> | Design is heavily inspired by
+            <a href="http://php-di.org">PHP-DI</a>
+        </p>
+        <p style="margin-top: 25px;">
+            <a href="https://packagist.org/packages/phpab/phpab"><img src="https://camo.githubusercontent.com/f5ed7b34122c9bb49e1a679aef6e9f67b9779bfe/68747470733a2f2f696d672e736869656c64732e696f2f7061636b61676973742f762f70687061622f70687061622e7376673f7374796c653d666c61742d737175617265" alt="Latest Version on Packagist" data-canonical-src="https://img.shields.io/packagist/v/phpab/phpab.svg?style=flat-square" style="max-width:100%;"></a>
+            <a href="https://github.com/phpab/phpab/blob/master/LICENSE.md"><img src="https://camo.githubusercontent.com/f8dc8b0dba0c01c69878a1b06bf2167d2bf9a5dd/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d4d49542d627269676874677265656e2e7376673f7374796c653d666c61742d737175617265" alt="Software License" data-canonical-src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" style="max-width:100%;"></a>
+            <a href="https://travis-ci.org/phpab/phpab"><img src="https://camo.githubusercontent.com/2cdcccd480a58428cec477b602e5e2b31b66ebd4/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f70687061622f70687061622f6d61737465722e7376673f7374796c653d666c61742d737175617265" alt="Build Status" data-canonical-src="https://img.shields.io/travis/phpab/phpab/master.svg?style=flat-square" style="max-width:100%;"></a>
+            <a href="https://scrutinizer-ci.com/g/phpab/phpab/code-structure"><img src="https://camo.githubusercontent.com/1b239ad53fe3bb10ef296b13b9ab74172706828a/68747470733a2f2f696d672e736869656c64732e696f2f7363727574696e697a65722f636f7665726167652f672f70687061622f70687061622e7376673f7374796c653d666c61742d737175617265" alt="Coverage Status" data-canonical-src="https://img.shields.io/scrutinizer/coverage/g/phpab/phpab.svg?style=flat-square" style="max-width:100%;"></a>
+            <a href="https://scrutinizer-ci.com/g/phpab/phpab"><img src="https://camo.githubusercontent.com/e71956bd03ba36aac6b4f432a46921badfe4ef0a/68747470733a2f2f696d672e736869656c64732e696f2f7363727574696e697a65722f672f70687061622f70687061622e7376673f7374796c653d666c61742d737175617265" alt="Quality Score" data-canonical-src="https://img.shields.io/scrutinizer/g/phpab/phpab.svg?style=flat-square" style="max-width:100%;"></a>
+            <a href="https://www.versioneye.com/user/projects/5702c846fcd19a004543f8fb"><img src="https://camo.githubusercontent.com/9e5bd193a65b1ac7d54b21b53f173a6b6138ce77/68747470733a2f2f696d672e736869656c64732e696f2f76657273696f6e6579652f642f70687061622f70687061622e7376673f7374796c653d666c61742d737175617265" alt="Dependency Status" data-canonical-src="https://img.shields.io/versioneye/d/phpab/phpab.svg?style=flat-square" style="max-width:100%;"></a>
+            <a href="https://packagist.org/packages/phpab/phpab"><img src="https://camo.githubusercontent.com/37e68181add890b92aabf2c4a254ed90e6f917b0/68747470733a2f2f696d672e736869656c64732e696f2f7061636b61676973742f64742f70687061622f70687061622e7376673f7374796c653d666c61742d737175617265" alt="Total Downloads" data-canonical-src="https://img.shields.io/packagist/dt/phpab/phpab.svg?style=flat-square" style="max-width:100%;"></a></p>
+    </div>
+</footer>
+
+<script>
+    ((window.gitter = {}).chat = {}).options = {
+        room: 'phpab'
+    };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
 
 </body>
 </html>
