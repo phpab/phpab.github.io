@@ -142,18 +142,57 @@
                     </div>
 
                     <h1 id="events">Events</h1>
-<p>TODO</p>
+<p>Phpab makes use of an event dispatcher. The event dispatcher can be used to attach
+event listeners to so that action can be taken when events happen within the library.</p>
+<p>The library supports multiple implementations of an event dispatcher. By default the
+following implementations exists:</p>
 <ul>
-<li>Subscribers</li>
-<li>ParticipationEvent</li>
+<li>Default dispatcher: An event dispatcher composed by the phpab team;</li>
+<li>Symfony dispatcher: This event dispatcher makes use of
+<a href="https://github.com/symfony/event-dispatcher">Symfony's event-dispatcher library</a>.</li>
+<li>Zend dispatcher: This dispatcher makes used of
+<a href="https://github.com/zendframework/zend-eventmanager">Zend Framework's event manager</a>.</li>
 </ul>
 <h2 id="dispatching">Dispatching</h2>
 <h3 id="simple-dispatcher">Simple Dispatcher</h3>
-<p>TODO</p>
+<p>The, what we call, <em>Simple Dispatcher</em> is a dispatcher class that is implemented by
+the PhpAb team itself. It's a very simple implementation to which you add listeners
+and subscribers. When an event is dispatched, the listeners are invoked.</p>
+<p>Usage is simple:</p>
+<pre><code class="language-php">$dispatcher = new \PhpAb\Event\Dispatcher();</code></pre>
+<p>To add a listener:</p>
+<pre><code class="language-php">$dispatcher-&gt;addListener('my-event', function() {
+    // The callback that is invoked. Parameters depend on the event.
+});</code></pre>
+<p>To add a subscriber:</p>
+<pre><code class="language-php">// The Google data collector implements SubscriberInterface but
+// of course you can create your own as well.
+$subscriber = new \PhpAb\Analytics\DataCollector\Google();
+$dispatcher-&gt;addSubscriber($subscriber);</code></pre>
 <h3 id="symfony-bridge">Symfony Bridge</h3>
 <p>TODO</p>
 <h3 id="zend-framework">Zend Framework</h3>
 <p>TODO</p>
+<h2 id="event-types">Event Types</h2>
+<p>Note that all events are dispatched from the Engine class
+(<a href="https://github.com/phpab/phpab/blob/master/src/Engine/Engine.php">https://github.com/phpab/phpab/blob/master/src/Engine/Engine.php</a>).
+The library has the following events:</p>
+<h3 id="phpabparticipationblock">phpab.participation.block</h3>
+<p>The <code>phpab.participation.block</code> event is dispatched when a user did not participate
+in the test yet and when the <a href="participation.html">participation manager</a> decided
+that the user should not participate in the particular test.</p>
+<h3 id="phpabparticipationblocked">phpab.participation.blocked</h3>
+<p>The <code>phpab.participation.blocked</code> event is dispatched when the a user already was
+excluded for a test by the <a href="participation.html">participation manager</a> and the
+user visits the page again in a new request.</p>
+<h3 id="phpabparticipationvariant_missing">phpab.participation.variant_missing</h3>
+<p>The <code>phpab.participation.variant_missing</code> event is dispatched when no variant
+has been chosen by the <a href="variants.html">cariant chooser</a> or when the variant no
+longer exists. This can happen when the user has a cookie set but the code has
+changed for example.</p>
+<h3 id="phpabparticipationvariant_run">phpab.participation.variant_run</h3>
+<p>The <code>phpab.participation.variant_run</code> event is dispatched when a variant is
+activated. This will happen for new users as well as for existing users.</p>
                 </article>
             </div>
         </div>
