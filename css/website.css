@@ -116,3 +116,18 @@ pre {
 .analytics-thumbs .mongodb-integration a {
     padding: 84px 0px;
 }
+
+.documentation-menu {
+    padding: 70px 25px 0px 0px;
+    text-align: right;
+}
+
+.documentation-menu ul {
+    list-style-type: none;
+    margin-bottom: 20px;
+    padding: 0px;
+}
+
+.documentation-menu li {
+    margin-top: 10px;
+}
