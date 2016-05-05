@@ -2,3 +2,34 @@ body {
     padding-top: 75px;
     overflow-y: scroll;
 }
+
+a {
+    color: #bf0000;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: #7c2000;
+    text-decoration: underline;
+}
+
+pre {
+    background-color: #F0F0F0;
+    border-radius: 0;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #777;
+}
+
+.navbar .navbar-nav a {
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: .1rem;
+    padding-left: 20px;
+    padding-right: 20px;
+}

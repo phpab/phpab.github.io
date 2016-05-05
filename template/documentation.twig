@@ -2,9 +2,9 @@
 
 {% block content %}
     
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 {% for itemId, item in menu.items %}
                     <strong>{{ item.section }}</strong>
 
@@ -19,7 +19,7 @@
                     </ul>
                 {% endfor %}
             </div>
-            <div class="col-md-10">
+            <div class="col-md-9">
                 <article>
                     <div class="pull-right">
                         <a href="https://github.com/phpab/phpab.github.io/blob/source/source/{{ currentFile }}"
