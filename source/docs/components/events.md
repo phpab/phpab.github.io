@@ -76,7 +76,7 @@ user visits the page again in a new request.
 ### phpab.participation.variant_missing
 
 The `phpab.participation.variant_missing` event is dispatched when no variant
-has been chosen by the [cariant chooser](variants.html) or when the variant no
+has been chosen by the [variant chooser](variants.html) or when the variant no
 longer exists. This can happen when the user has a cookie set but the code has
 changed for example.
 
