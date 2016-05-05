@@ -169,10 +169,18 @@ and subscribers. When an event is dispatched, the listeners are invoked.</p>
 // of course you can create your own as well.
 $subscriber = new \PhpAb\Analytics\DataCollector\Google();
 $dispatcher-&gt;addSubscriber($subscriber);</code></pre>
-<h3 id="symfony-bridge">Symfony Bridge</h3>
-<p>TODO</p>
-<h3 id="zend-framework">Zend Framework</h3>
-<p>TODO</p>
+<h3 id="symfony-bridge">Symfony bridge</h3>
+<p>The Symfony bridge can be used to create an event dispatcher from the
+<a href="https://github.com/symfony/event-dispatcher">symfony/event-dispatcher</a>
+library. It does not have support for
+[SubscriberInterface]()
+at the moment.</p>
+<h3 id="zend-framework-bridge">Zend Framework bridge</h3>
+<p>The Zend Framwork bridge can be used to create an event dispatcher from the
+<a href="https://github.com/zendframework/zend-eventmanager">zendframework/zend-eventmanager</a>
+library. It does not have support for
+[SubscriberInterface]()
+at the moment.</p>
 <h2 id="event-types">Event Types</h2>
 <p>Note that all events are dispatched from the Engine class
 (<a href="https://github.com/phpab/phpab/blob/master/src/Engine/Engine.php">https://github.com/phpab/phpab/blob/master/src/Engine/Engine.php</a>).
@@ -187,7 +195,7 @@ excluded for a test by the <a href="participation.html">participation manager</a
 user visits the page again in a new request.</p>
 <h3 id="phpabparticipationvariant_missing">phpab.participation.variant_missing</h3>
 <p>The <code>phpab.participation.variant_missing</code> event is dispatched when no variant
-has been chosen by the <a href="variants.html">cariant chooser</a> or when the variant no
+has been chosen by the <a href="variants.html">variant chooser</a> or when the variant no
 longer exists. This can happen when the user has a cookie set but the code has
 changed for example.</p>
 <h3 id="phpabparticipationvariant_run">phpab.participation.variant_run</h3>
