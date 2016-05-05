@@ -1,7 +1,3 @@
 ---
-title: Hello World
+layout: home
 ---
-
-# Hello World
-
-[Want to see the documentaiton?](docs/)
