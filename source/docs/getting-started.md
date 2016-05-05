@@ -3,7 +3,7 @@ layout: documentation
 title: Getting started
 ---
 
-# Getting started with phpab
+# Getting started with PhpAb
 
 Hello world! This guide will help you get started with using php in your project.
 

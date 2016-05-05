@@ -31,7 +31,7 @@ the data. It's up to user-domain to interpret the data and analyze it.
 
 ## Events
 
-`phpab` provides an event dispatcher which makes it possible to add hooks to the
+`PhpAb` provides an event dispatcher which makes it possible to add hooks to the
 system. We provide various immplementations for event managers. There is a simple
 event dispatcher but there is also support to use the Symfony Event dispatcher or
 Zend Framework 2's event manager.

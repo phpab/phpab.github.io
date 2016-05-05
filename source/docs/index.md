@@ -29,4 +29,4 @@ This is the documentation index. Please choose your topic.
 
 ### License
 
-phpab is released under the MIT license.
+PhpAb is released under the MIT license.
