@@ -1,14 +1,14 @@
 {% extends "default.twig" %}
 
 {% block content %}
-    
+
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 documentation-menu">
                 {% for itemId, item in menu.items %}
                     <strong>{{ item.section }}</strong>
 
-                    <ul class="nav nav-pills nav-stacked" style="margin-bottom: 20px;">
+                    <ul>
                         {% for itemId, item in item.items %}
                             <li role="presentation" class="{{ itemId == current_menu ? 'active' }}">
                                 <a href="{{ item.absoluteUrl|default(baseUrl ~ '/' ~ item.url) }}">
@@ -25,6 +25,7 @@
                         <a href="https://github.com/phpab/phpab.github.io/blob/source/source/{{ currentFile }}"
                            class="btn btn-default btn-sm">
                             Edit this page on GitHub
+                            <i class="fa fa-github"></i>
                         </a>
                     </div>
 
