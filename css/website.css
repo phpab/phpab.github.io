@@ -1,6 +1,12 @@
 body {
     padding-top: 75px;
     overflow-y: scroll;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px
+}
+p {
+    line-height: 1.5;
+    margin: 10px 0 20px;
 }
 
 footer {

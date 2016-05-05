@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
     <link rel="stylesheet" href="http://phpab.github.io/css/website.css">
 
@@ -182,31 +184,106 @@ What you are usually storing is:</p>
 <p>Google Analytics is a a very powerful tool that can combine website usage with abtests (called Experiments). Read about <a href="googleanalytics/index.html">how to use Google Analytics</a> to run your tests.</p>
 <p><strong>Classic or Universal Analytics?</strong> It's important that you know which version of Google Analytics your site is using else your data will not be saved.</p>
 <h3 id="google-classic-analytics">Google Classic Analytics</h3>
-<p>Use GoogleClassicAnalytics to render in your page the JavaScript required by Google to track participation. You simple have to inject to it the test data collected in your DataCollector.</p>
-<pre><code class="language-php">use PhpAb\Analytics\Renderer\Google\GoogleClassicAnalytics;
-//...
-$analytics = new GoogleUniversalAnalytics($analyticsData-&gt;getTestsData());</code></pre>
-<p>If you haven't include Google Analytics JavaScript API Client, you can tell the class to include it too.</p>
-<pre><code class="language-php">use PhpAb\Analytics\Renderer\Google\GoogleClassicAnalytics;
-//...
-$analytics = new GoogleUniversalAnalytics($analyticsData-&gt;getTestsData());
-$analytics-&gt;setApiCLientInclusion(true);</code></pre>
-<p>After all this, you just have to echo it in your views and Analytics will process your data for you.</p>
-<pre><code class="language-php">echo $analytics-&gt;getScript();</code></pre>
+<p>Use: </p>
+<ul>
+<li><em>PhpAb\Analytics\DataCollector\Google</em> to store user test participations</li>
+<li><em>PhpAb\Analytics\Renderer\Google\GoogleClassicAnalytics</em> to render in your page the JavaScript required by Google to track participation.</li>
+</ul>
+<pre><code class="language-php">// This illustrates a test with:
+// * Cookie storage
+// * Random Variant Chooser
+// * Simple variants
+// * Google Classic Analytics
+
+use PhpAb\Storage\Cookie;
+use PhpAb\Participation\Manager;
+use PhpAb\Analytics\DataCollector\Google;
+use PhpAb\Event\Dispatcher;
+use PhpAb\Participation\Filter\Percentage;
+use PhpAb\Variant\Chooser\RandomChooser;
+use PhpAb\Engine\Engine;
+use PhpAb\Variant\SimpleVariant;
+use PhpAb\Test\Test;
+use PhpAb\Analytics\Renderer\Google\GoogleClassicAnalytics;
+
+$storage = new Cookie('phpab');
+$manager = new Manager($storage);
+
+$analyticsData = new Google();
+
+$dispatcher = new Dispatcher();
+$dispatcher-&gt;addSubscriber($analyticsData);
+
+$filter = new Percentage(100);
+$chooser = new RandomChooser();
+
+$engine = new Engine($manager, $dispatcher, $filter, $chooser);
+
+$test = new Test(
+    'buttonColour',
+    [],
+    [Google::EXPERIMENT_ID =&gt; 'ABC123']
+);
+
+$test-&gt;addVariant(new SimpleVariant('control'));
+$test-&gt;addVariant(new SimpleVariant('variant'));
+
+$engine-&gt;addTest($test);
+$engine-&gt;start();
+
+$analytics = new GoogleClassicAnalytics($analyticsData-&gt;getTestsData());
+
+// In your views run
+// echo $analytics-&gt;getScript()
+</code></pre>
 <h3 id="google-universal-analytics">Google Universal Analytics</h3>
 <p>Use GoogleUniversalAnalytics to render in your page the JavaScript required by Google to track participation. You simple have to inject to it the test data collected in your DataCollector.</p>
-<pre><code class="language-php">use PhpAb\Analytics\Renderer\Google\GoogleUniversalAnalytics;
-//...
-$analytics = new GoogleUniversalAnalytics($analyticsData-&gt;getTestsData());</code></pre>
-<p>If you haven't include Google Analytics JavaScript API Client, you can tell the class to include it too.</p>
-<pre><code class="language-php">use PhpAb\Analytics\Renderer\Google\GoogleUniversalAnalytics;
-//...
+<pre><code class="language-php">// This illustrates a test with:
+// * Cookie storage
+// * Random Variant Chooser
+// * Simple variants
+// * Google Universal Analytics
+
+use PhpAb\Storage\Cookie;
+use PhpAb\Participation\Manager;
+use PhpAb\Analytics\DataCollector\Google;
+use PhpAb\Event\Dispatcher;
+use PhpAb\Participation\Filter\Percentage;
+use PhpAb\Variant\Chooser\RandomChooser;
+use PhpAb\Engine\Engine;
+use PhpAb\Variant\SimpleVariant;
+use PhpAb\Test\Test;
+use PhpAb\Analytics\Renderer\Google\GoogleUniversalAnalytics;
+
+$storage = new Cookie('phpab');
+$manager = new Manager($storage);
+
+$analyticsData = new Google();
+
+$dispatcher = new Dispatcher();
+$dispatcher-&gt;addSubscriber($analyticsData);
+
+$filter = new Percentage(100);
+$chooser = new RandomChooser();
+
+$engine = new Engine($manager, $dispatcher, $filter, $chooser);
+
+$test = new Test(
+    'buttonColour',
+    [],
+    [Google::EXPERIMENT_ID =&gt; 'ABC123']
+);
+
+$test-&gt;addVariant(new SimpleVariant('control'));
+$test-&gt;addVariant(new SimpleVariant('variant'));
+
+$engine-&gt;addTest($test);
+$engine-&gt;start();
+
 $analytics = new GoogleUniversalAnalytics($analyticsData-&gt;getTestsData());
-$analytics-&gt;setApiCLientInclusion(true);</code></pre>
-<p>After all this, you just have to echo it in your views and Analytics will process your data for you.</p>
-<pre><code class="language-php">echo $analytics-&gt;getScript();</code></pre>
-<h3 id="rendering">Rendering</h3>
-<p>TODO</p>
+
+// In your views run
+// echo $analytics-&gt;getScript()</code></pre>
 <h2 id="pdo">PDO</h2>
 <p>TODO</p>
 <h2 id="mongodb">MongoDB</h2>
