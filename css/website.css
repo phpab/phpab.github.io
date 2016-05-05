@@ -80,6 +80,19 @@ pre {
     background-color: inherit;
 }
 
+.caption {
+    text-transform: uppercase;
+}
+
+.thumbnail {
+    border: 0px;
+    text-align: center;
+}
+
+.thumbnail img {
+    max-width: 200px;
+}
+
 .integration-thumbs {
     margin-top: 40px;
 }
@@ -88,15 +101,18 @@ pre {
     padding: 51px 0px;
 }
 
-.integration-thumbs .thumbnail {
-    border: 0px;
-    text-align: center;
+.analytics-thumbs .google-analytics-integration a {
+    padding: 66px 0px;
 }
 
-.integration-thumbs .caption {
-    text-transform: uppercase;
+.analytics-thumbs .mysql-integration a {
+    padding: 54px 0px;
 }
 
-.integration-thumbs img {
-    max-width: 200px;
+.analytics-thumbs .postgresql-integration a {
+    padding: 0px;
+}
+
+.analytics-thumbs .mongodb-integration a {
+    padding: 84px 0px;
 }
