@@ -167,13 +167,44 @@
                     </div>
 
                     <h1 id="analytics">Analytics</h1>
+<p>In order to determine how your tests are doing, you will need to store tests user participation somewhere.
+What you are usually storing is:</p>
+<ul>
+<li>a user identifier</li>
+<li>a test identifier</li>
+<li>a variant identifier (this could be control too)</li>
+<li>a scenario (typically a web url)</li>
+<li>a timestamp</li>
+</ul>
+<p>By analyzing all this data, you can determine which variant is performing better.</p>
+<p>PhpAb provides different ways to store this data. Continue reading to find out more.</p>
 <h2 id="google-analytics">Google Analytics</h2>
-<p>Read about how to use Google Analytics to read the results of your tests.
-<a href="googleanalytics/index.html">Read more</a></p>
+<p>Google Analytics is a a very powerful tool that can combine website usage with abtests (called Experiments). Read about <a href="googleanalytics/index.html">how to use Google Analytics</a> to run your tests.</p>
+<p><strong>Classic or Universal Analytics?</strong> It's important that you know which version of Google Analytics your site is using else your data will not be saved.</p>
 <h3 id="google-classic-analytics">Google Classic Analytics</h3>
-<p>TODO</p>
+<p>Use GoogleClassicAnalytics to render in your page the JavaScript required by Google to track participation. You simple have to inject to it the test data collected in your DataCollector.</p>
+<pre><code class="language-php">use PhpAb\Analytics\Renderer\Google\GoogleClassicAnalytics;
+//...
+$analytics = new GoogleUniversalAnalytics($analyticsData-&gt;getTestsData());</code></pre>
+<p>If you haven't include Google Analytics JavaScript API Client, you can tell the class to include it too.</p>
+<pre><code class="language-php">use PhpAb\Analytics\Renderer\Google\GoogleClassicAnalytics;
+//...
+$analytics = new GoogleUniversalAnalytics($analyticsData-&gt;getTestsData());
+$analytics-&gt;setApiCLientInclusion(true);</code></pre>
+<p>After all this, you just have to echo it in your views and Analytics will process your data for you.</p>
+<pre><code class="language-php">echo $analytics-&gt;getScript();</code></pre>
 <h3 id="google-universal-analytics">Google Universal Analytics</h3>
-<p>TODO</p>
+<p>Use GoogleUniversalAnalytics to render in your page the JavaScript required by Google to track participation. You simple have to inject to it the test data collected in your DataCollector.</p>
+<pre><code class="language-php">use PhpAb\Analytics\Renderer\Google\GoogleUniversalAnalytics;
+//...
+$analytics = new GoogleUniversalAnalytics($analyticsData-&gt;getTestsData());</code></pre>
+<p>If you haven't include Google Analytics JavaScript API Client, you can tell the class to include it too.</p>
+<pre><code class="language-php">use PhpAb\Analytics\Renderer\Google\GoogleUniversalAnalytics;
+//...
+$analytics = new GoogleUniversalAnalytics($analyticsData-&gt;getTestsData());
+$analytics-&gt;setApiCLientInclusion(true);</code></pre>
+<p>After all this, you just have to echo it in your views and Analytics will process your data for you.</p>
+<pre><code class="language-php">echo $analytics-&gt;getScript();</code></pre>
 <h3 id="rendering">Rendering</h3>
 <p>TODO</p>
 <h2 id="pdo">PDO</h2>
