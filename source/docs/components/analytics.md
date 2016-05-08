@@ -14,19 +14,20 @@ What you are usually storing is:
 * a scenario (typically a web url)
 * a timestamp
 
-By analyzing all this data, you can determine which variant is performing better.
+By analyzing all this data, you can determine which variant is performing better and which one gets users closer to your goals.
 
-PhpAb provides different ways to store this data. Continue reading to find out more.
+PhpAb provides different ways to store this data.
+You can use more than one Analytics implementation simultaneously too. For instance, you might want to to use Google Analytics and MongoDB, so you could also create your own business intelligence data crunching.
 
 ## Google Analytics
 
-Google Analytics is a a very powerful tool that can combine website usage with abtests (called Experiments). Read about [how to use Google Analytics](googleanalytics/index.md) to run your tests.
+Google Analytics (GA) is a a very powerful tool that can combine website usage with A/B tests (in GA called "Experiments"). Read about [how to use Google Analytics Experiments](google-analytics-experiments/index.md) to run your tests.
 
 **Classic or Universal Analytics?** It's important that you know which version of Google Analytics your site is using else your data will not be saved.
 
 ### Google Classic Analytics
 
-Use: 
+Use:
 * *PhpAb\Analytics\DataCollector\Google* to store user test participations
 * *PhpAb\Analytics\Renderer\Google\GoogleClassicAnalytics* to render in your page the JavaScript required by Google to track participation.
 
@@ -82,7 +83,10 @@ $analytics = new GoogleClassicAnalytics($analyticsData->getTestsData());
 
 ### Google Universal Analytics
 
-Use GoogleUniversalAnalytics to render in your page the JavaScript required by Google to track participation. You simple have to inject to it the test data collected in your DataCollector.
+Use:
+* *PhpAb\Analytics\DataCollector\Google* to store user test participations
+* *PhpAb\Analytics\Renderer\Google\GoogleUniversalAnalytics* to render in your page the JavaScript required by Google to track participation.
+
 
 ```php
 // This illustrates a test with:
@@ -133,11 +137,93 @@ $analytics = new GoogleUniversalAnalytics($analyticsData->getTestsData());
 // echo $analytics->getScript()
 ```
 
-
-
 ## PDO
 
-TODO
+PDO is a Database Abstraction Layer (DBAL) and, as such, allows you to interact with different database services using the same api.
+To store PhpAb test participations using PDO you must:
+
+### Install module
+Due to its requirements, PDO Analytics is shipped as a separate library.
+Install it via composer with:
+```
+$ composer require phpab/analytics-pdo
+```
+**Note:** Make sure you have installed the database driver you intend to use.
+
+### Usage
+
+This example uses Sqlite as storage service.
+```php
+
+use PhpAb\Storage\Cookie;
+use PhpAb\Participation\Manager;
+use PhpAb\Analytics\DataCollector\Generic;
+use PhpAb\Event\Dispatcher;
+use PhpAb\Participation\Filter\Percentage;
+use PhpAb\Variant\Chooser\RandomChooser;
+use PhpAb\Engine\Engine;
+use PhpAb\Test\Test;
+use PhpAb\Variant\SimpleVariant;
+use PhpAb\Variant\CallbackVariant;
+
+$storage = new Cookie('phpab');
+$manager = new Manager($storage);
+
+$analyticsData = new Generic();
+
+$dispatcher = new Dispatcher();
+$dispatcher->addSubscriber($analyticsData);
+
+$filter = new Percentage(50);
+$chooser = new RandomChooser();
+
+$engine = new Engine($manager, $dispatcher, $filter, $chooser);
+
+$test = new Test('foo_test');
+$test->addVariant(new SimpleVariant('_control'));
+$test->addVariant(new CallbackVariant('v1', function () {
+    echo 'v1';
+}));
+$test->addVariant(new CallbackVariant('v2', function () {
+    echo 'v2';
+}));
+$test->addVariant(new CallbackVariant('v3', function () {
+    echo 'v3';
+}));
+
+// Add some tests
+$engine->addTest($test);
+
+$engine->start();
+
+// Here starts PDO interaction
+$pdo = new PDO('sqlite:./phpab.db');
+
+$options = [
+    'runTable' => 'Run',
+    'testIdentifierField' => 'testIdentifier',
+    'variantIdentifierField' => 'variantIdentifier',
+    'userIdentifierField' => 'userIdentifier',
+    'scenarioIdentifierField' => 'scenarioIdentifier',
+    'runIdentifierField' => 'runIdentifier',
+    'createdAtField' => 'createdAt'
+];
+
+// Inject PDO instance together with Analytics Data
+$analytics = new \PhpAb\Analytics\PDO(
+    $analyticsData->getTestsData(),
+    $pdo,
+    $options
+);
+
+// Store it providing a user identifier and a scenario
+// typically a URL or a controller name
+
+$analytics->store('1.2.3.4-abc', 'homepage.php');
+```
+
+
+Note: You can check the code and examples at [Analytics-PDO](https://github.com/phpab/analytics-pdo).
 
 ## MongoDB
 
