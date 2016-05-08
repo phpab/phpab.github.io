@@ -103,11 +103,6 @@
                                     Library layout
                                 </a>
                             </li>
-                                                    <li role="presentation" class="">
-                                <a href="http://phpab.github.io/docs/understanding-ab-testing.html">
-                                    Understanding A/B testing
-                                </a>
-                            </li>
                                             </ul>
                                     <strong>Components</strong>
 
@@ -169,26 +164,34 @@
                     </div>
 
                     <h1 id="documentation">Documentation</h1>
-<p>This is the documentation index. Please choose your topic.</p>
-<h3 id="introduction">Introduction</h3>
+<p>This is the documentation index. In this documentation we will explain the usage
+of PhpAb. We will describe design of the library and all the components it exists
+of.</p>
+<p>Before you go into depth it's important to realize what A/B testing is and how it
+works.</p>
+<h2 id="understanding-ab-testing">Understanding A/B testing</h2>
+<p>A/B testing, sometimes also called bucket tests or split-run testing, is a way
+to run an experiment with two variants, A and B. A and B are also called the
+control and the variation.</p>
+<p>The goal is two run an experiment and analyze with variation has an outcome that
+meets the requirements most. Requirements can variate a lot and totally depend on
+the business case. One could use A/B testing for user experience for example. But
+one could also apply A/B testing to technical problems to see which version of an
+application performs better for example.</p>
+<h2 id="multivariate-testing">Multivariate testing</h2>
+<p>Multivariate testing is very similar to A/B testing with a difference that one
+runs multiple variants in an experiment. This library also supports multivariate
+testing.</p>
+<h2 id="references">References</h2>
+<p>For more information on A/B testing, Google is your best friend. We've made a
+selection of some useful websites that you can visit.</p>
 <ul>
-<li><a href="getting-started.html">Getting started</a></li>
-<li><a href="understanding-ab-testing.html">Understanding A/B testing</a></li>
-<li><a href="library-layout.html">Library layout</a></li>
-</ul>
-<h3 id="components">Components</h3>
-<ul>
-<li><a href="components/analytics.html">Analytics</a></li>
-<li><a href="components/events.html">Events</a></li>
-<li><a href="components/participation.html">Participation</a></li>
-<li><a href="components/storage.html">Storage</a></li>
-<li><a href="components/variants.html">Variants</a></li>
-</ul>
-<h3 id="frameworks-integrations">Frameworks Integrations</h3>
-<ul>
-<li><a href="frameworks/symfony2.html">Symfony 2</a></li>
-<li><a href="frameworks/wordpress.html">Wordpress</a></li>
-<li><a href="frameworks/zf2.html">Zend Framework 2</a></li>
+<li><a href="https://en.wikipedia.org/wiki/A/B_testing">https://en.wikipedia.org/wiki/A/B_testing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Multivariate_statistics">https://en.wikipedia.org/wiki/Multivariate_statistics</a></li>
+<li><a href="https://vwo.com/ab-testing/">https://vwo.com/ab-testing/</a></li>
+<li><a href="https://blog.kissmetrics.com/ab-testing-introduction/">https://blog.kissmetrics.com/ab-testing-introduction/</a></li>
+<li><a href="http://conversionxl.com/how-to-build-a-strong-ab-testing-plan-that-gets-results/">http://conversionxl.com/how-to-build-a-strong-ab-testing-plan-that-gets-results/</a></li>
+<li><a href="http://blog.hubspot.com/blog/tabid/6307/bid/30556/The-Critical-Difference-Between-A-B-and-Multivariate-Tests.aspx">http://blog.hubspot.com/blog/tabid/6307/bid/30556/The-Critical-Difference-Between-A-B-and-Multivariate-Tests.aspx</a></li>
 </ul>
 <h3 id="license">License</h3>
 <p>PhpAb is released under the MIT license.</p>
