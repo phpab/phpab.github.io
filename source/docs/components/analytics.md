@@ -145,7 +145,8 @@ To store PhpAb test participations using PDO you must:
 ### Install module
 Due to its requirements, PDO Analytics is shipped as a separate library.
 Install it via composer with:
-```
+
+```bash
 $ composer require phpab/analytics-pdo
 ```
 **Note:** Make sure you have installed the database driver you intend to use.
@@ -153,6 +154,7 @@ $ composer require phpab/analytics-pdo
 ### Usage
 
 This example uses Sqlite as storage service.
+
 ```php
 
 use PhpAb\Storage\Cookie;
@@ -222,9 +224,97 @@ $analytics = new \PhpAb\Analytics\PDO(
 $analytics->store('1.2.3.4-abc', 'homepage.php');
 ```
 
+The class *\PhpAb\Analytics\PDO* expects 3 parameters:
+* The the participation data array
+* The PDO instance
+* The table and fialds definition (optional)
+
+Once these parameters are passed, execute the *store($userIdentifier, $scenarioIdentifier)* passing two parameters:
+* User identifier, a string that will represent a website visitor. Usually these are stored in a cookie.
+* Scenario identifier, this is typically a url, either a complete one, or a normalized one.
 
 Note: You can check the code and examples at [Analytics-PDO](https://github.com/phpab/analytics-pdo).
 
 ## MongoDB
 
-TODO
+To store PhpAb test participations using MongoDB you must:
+
+### Install module
+Due to its requirements, MongoDB Analytics is shipped as a separate library.
+Install it via composer with:
+
+```bash
+$ composer require phpab/analytics-mongodb
+```
+
+### Usage
+
+```php
+use PhpAb\Storage\Cookie;
+use PhpAb\Participation\Manager;
+use PhpAb\Analytics\DataCollector\Generic;
+use PhpAb\Event\Dispatcher;
+use PhpAb\Participation\Filter\Percentage;
+use PhpAb\Variant\Chooser\RandomChooser;
+use PhpAb\Variant\SimpleVariant;
+use PhpAb\Variant\CallbackVariant;
+use PhpAb\Engine\Engine;
+use PhpAb\Test\Test;
+
+$storage = new Cookie('phpab');
+$manager = new Manager($storage);
+
+$analyticsData = new Generic();
+
+$dispatcher = new Dispatcher();
+$dispatcher->addSubscriber($analyticsData);
+
+$filter = new Percentage(50);
+$chooser = new RandomChooser();
+
+$engine = new Engine($manager, $dispatcher, $filter, $chooser);
+
+$test = new Test('foo_test');
+$test->addVariant(new SimpleVariant('_control'));
+$test->addVariant(new CallbackVariant('v1', function () {
+    echo 'v1';
+}));
+$test->addVariant(new CallbackVariant('v2', function () {
+    echo 'v2';
+}));
+$test->addVariant(new CallbackVariant('v3', function () {
+    echo 'v3';
+}));
+
+// Add some tests
+$engine->addTest($test);
+
+$engine->start();
+
+// Here starts MongoDB interaction
+
+// Provide a MongoDB Collection to be injected
+$mongoCollection = (new \MongoDB\Client)->phpab->run;
+
+// Inject together with Analytics Data
+$analytics = new \PhpAb\Analytics\MongoDB(
+        $analyticsData->getTestsData(), $mongoCollection
+);
+
+// Store it providing a user identifier and a scenario
+// typically a URL or a controller name
+
+$result = $analytics->store('1.2.3.4-abc', 'homepage.php');
+```
+
+The class *\PhpAb\Analytics\MongoDB* expects 2 parameters:
+* The the participation data array
+* The MongoDB collection name where participation will be stored
+
+Once these parameters are passed, execute the *store($userIdentifier, $scenarioIdentifier)* passing two parameters:
+* User identifier, a string that will represent a website visitor. Usually these are stored in a cookie.
+* Scenario identifier, this is typically a url, either a complete one, or a normalized one.
+
+Note: You can check the code and examples at [Analytics-MongoDB](https://github.com/phpab/analytics-mongodb).
+
+
