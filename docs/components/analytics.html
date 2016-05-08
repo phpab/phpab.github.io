@@ -295,7 +295,7 @@ To store PhpAb test participations using PDO you must:</p>
 <h3 id="install-module">Install module</h3>
 <p>Due to its requirements, PDO Analytics is shipped as a separate library.
 Install it via composer with:</p>
-<pre><code>$ composer require phpab/analytics-pdo</code></pre>
+<pre><code class="language-bash">$ composer require phpab/analytics-pdo</code></pre>
 <p><strong>Note:</strong> Make sure you have installed the database driver you intend to use.</p>
 <h3 id="usage">Usage</h3>
 <p>This example uses Sqlite as storage service.</p>
@@ -365,9 +365,91 @@ $analytics = new \PhpAb\Analytics\PDO(
 // typically a URL or a controller name
 
 $analytics-&gt;store('1.2.3.4-abc', 'homepage.php');</code></pre>
+<p>The class <em>\PhpAb\Analytics\PDO</em> expects 3 parameters:</p>
+<ul>
+<li>The the participation data array</li>
+<li>The PDO instance</li>
+<li>The table and fialds definition (optional)</li>
+</ul>
+<p>Once these parameters are passed, execute the <em>store($userIdentifier, $scenarioIdentifier)</em> passing two parameters:</p>
+<ul>
+<li>User identifier, a string that will represent a website visitor. Usually these are stored in a cookie.</li>
+<li>Scenario identifier, this is typically a url, either a complete one, or a normalized one.</li>
+</ul>
 <p>Note: You can check the code and examples at <a href="https://github.com/phpab/analytics-pdo">Analytics-PDO</a>.</p>
 <h2 id="mongodb">MongoDB</h2>
-<p>TODO</p>
+<p>To store PhpAb test participations using MongoDB you must:</p>
+<h3 id="install-module-1">Install module</h3>
+<p>Due to its requirements, MongoDB Analytics is shipped as a separate library.
+Install it via composer with:</p>
+<pre><code class="language-bash">$ composer require phpab/analytics-mongodb</code></pre>
+<h3 id="usage-1">Usage</h3>
+<pre><code class="language-php">use PhpAb\Storage\Cookie;
+use PhpAb\Participation\Manager;
+use PhpAb\Analytics\DataCollector\Generic;
+use PhpAb\Event\Dispatcher;
+use PhpAb\Participation\Filter\Percentage;
+use PhpAb\Variant\Chooser\RandomChooser;
+use PhpAb\Variant\SimpleVariant;
+use PhpAb\Variant\CallbackVariant;
+use PhpAb\Engine\Engine;
+use PhpAb\Test\Test;
+
+$storage = new Cookie('phpab');
+$manager = new Manager($storage);
+
+$analyticsData = new Generic();
+
+$dispatcher = new Dispatcher();
+$dispatcher-&gt;addSubscriber($analyticsData);
+
+$filter = new Percentage(50);
+$chooser = new RandomChooser();
+
+$engine = new Engine($manager, $dispatcher, $filter, $chooser);
+
+$test = new Test('foo_test');
+$test-&gt;addVariant(new SimpleVariant('_control'));
+$test-&gt;addVariant(new CallbackVariant('v1', function () {
+    echo 'v1';
+}));
+$test-&gt;addVariant(new CallbackVariant('v2', function () {
+    echo 'v2';
+}));
+$test-&gt;addVariant(new CallbackVariant('v3', function () {
+    echo 'v3';
+}));
+
+// Add some tests
+$engine-&gt;addTest($test);
+
+$engine-&gt;start();
+
+// Here starts MongoDB interaction
+
+// Provide a MongoDB Collection to be injected
+$mongoCollection = (new \MongoDB\Client)-&gt;phpab-&gt;run;
+
+// Inject together with Analytics Data
+$analytics = new \PhpAb\Analytics\MongoDB(
+        $analyticsData-&gt;getTestsData(), $mongoCollection
+);
+
+// Store it providing a user identifier and a scenario
+// typically a URL or a controller name
+
+$result = $analytics-&gt;store('1.2.3.4-abc', 'homepage.php');</code></pre>
+<p>The class <em>\PhpAb\Analytics\MongoDB</em> expects 2 parameters:</p>
+<ul>
+<li>The the participation data array</li>
+<li>The MongoDB collection name where participation will be stored</li>
+</ul>
+<p>Once these parameters are passed, execute the <em>store($userIdentifier, $scenarioIdentifier)</em> passing two parameters:</p>
+<ul>
+<li>User identifier, a string that will represent a website visitor. Usually these are stored in a cookie.</li>
+<li>Scenario identifier, this is typically a url, either a complete one, or a normalized one.</li>
+</ul>
+<p>Note: You can check the code and examples at <a href="https://github.com/phpab/analytics-mongodb">Analytics-MongoDB</a>.</p>
                 </article>
             </div>
         </div>
