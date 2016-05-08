@@ -187,8 +187,8 @@ You can use more than one Analytics implementation simultaneously too. For insta
 <h3 id="google-classic-analytics">Google Classic Analytics</h3>
 <p>Use:</p>
 <ul>
-<li><em>PhpAb\Analytics\DataCollector\Google</em> to store user test participations</li>
-<li><em>PhpAb\Analytics\Renderer\Google\GoogleClassicAnalytics</em> to render in your page the JavaScript required by Google to track participation.</li>
+<li><code>PhpAb\Analytics\DataCollector\Google</code> to store user test participations</li>
+<li><code>PhpAb\Analytics\Renderer\Google\GoogleClassicAnalytics</code> to render in your page the JavaScript required by Google to track participation.</li>
 </ul>
 <pre><code class="language-php">// This illustrates a test with:
 // * Cookie storage
@@ -240,8 +240,8 @@ $analytics = new GoogleClassicAnalytics($analyticsData-&gt;getTestsData());
 <h3 id="google-universal-analytics">Google Universal Analytics</h3>
 <p>Use:</p>
 <ul>
-<li><em>PhpAb\Analytics\DataCollector\Google</em> to store user test participations</li>
-<li><em>PhpAb\Analytics\Renderer\Google\GoogleUniversalAnalytics</em> to render in your page the JavaScript required by Google to track participation.</li>
+<li><code>PhpAb\Analytics\DataCollector\Google</code> to store user test participations</li>
+<li><code>PhpAb\Analytics\Renderer\Google\GoogleUniversalAnalytics</code> to render in your page the JavaScript required by Google to track participation.</li>
 </ul>
 <pre><code class="language-php">// This illustrates a test with:
 // * Cookie storage
@@ -298,7 +298,7 @@ Install it via composer with:</p>
 <pre><code class="language-bash">$ composer require phpab/analytics-pdo</code></pre>
 <p><strong>Note:</strong> Make sure you have installed the database driver you intend to use.</p>
 <h3 id="usage">Usage</h3>
-<p>This example uses Sqlite as storage service.</p>
+<p>This example uses <code>Sqlite</code> as storage service.</p>
 <pre><code class="language-php">
 use PhpAb\Storage\Cookie;
 use PhpAb\Participation\Manager;
@@ -365,20 +365,20 @@ $analytics = new \PhpAb\Analytics\PDO(
 // typically a URL or a controller name
 
 $analytics-&gt;store('1.2.3.4-abc', 'homepage.php');</code></pre>
-<p>The class <em>\PhpAb\Analytics\PDO</em> expects 3 parameters:</p>
+<p>The class <code>\PhpAb\Analytics\PDO</code> expects 3 parameters:</p>
 <ul>
 <li>The the participation data array</li>
 <li>The PDO instance</li>
 <li>The table and fialds definition (optional)</li>
 </ul>
-<p>Once these parameters are passed, execute the <em>store($userIdentifier, $scenarioIdentifier)</em> passing two parameters:</p>
+<p>Once these parameters are passed, execute the <code>store($userIdentifier, $scenarioIdentifier)</code> passing two parameters:</p>
 <ul>
 <li>User identifier, a string that will represent a website visitor. Usually these are stored in a cookie.</li>
 <li>Scenario identifier, this is typically a url, either a complete one, or a normalized one.</li>
 </ul>
 <p>Note: You can check the code and examples at <a href="https://github.com/phpab/analytics-pdo">Analytics-PDO</a>.</p>
 <h2 id="mongodb">MongoDB</h2>
-<p>To store PhpAb test participations using MongoDB you must:</p>
+<p>To store PhpAb test participations using <code>MongoDB</code> you must:</p>
 <h3 id="install-module-1">Install module</h3>
 <p>Due to its requirements, MongoDB Analytics is shipped as a separate library.
 Install it via composer with:</p>
@@ -439,12 +439,12 @@ $analytics = new \PhpAb\Analytics\MongoDB(
 // typically a URL or a controller name
 
 $result = $analytics-&gt;store('1.2.3.4-abc', 'homepage.php');</code></pre>
-<p>The class <em>\PhpAb\Analytics\MongoDB</em> expects 2 parameters:</p>
+<p>The class <code>\PhpAb\Analytics\MongoDB</code> expects 2 parameters:</p>
 <ul>
 <li>The the participation data array</li>
-<li>The MongoDB collection name where participation will be stored</li>
+<li>The <code>MongoDB</code> collection name where participation will be stored</li>
 </ul>
-<p>Once these parameters are passed, execute the <em>store($userIdentifier, $scenarioIdentifier)</em> passing two parameters:</p>
+<p>Once these parameters are passed, execute the <code>store($userIdentifier, $scenarioIdentifier)</code> passing two parameters:</p>
 <ul>
 <li>User identifier, a string that will represent a website visitor. Usually these are stored in a cookie.</li>
 <li>Scenario identifier, this is typically a url, either a complete one, or a normalized one.</li>
