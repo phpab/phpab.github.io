@@ -8,9 +8,8 @@ title: Getting started
 Hello world! This guide will help you get started with using php in your project.
 
 Before you start using phpab/phpab, you need to know what A/B testing is. If you are new to
-A/B testing we recommend you read the following article which we have dedicated especially to you:
-[Understanding A/B testing](understanding-ab-testing.md). This article explains the basics and gives
-tips to implement good tests.
+A/B testing we recommend you read the documentation index where we explain the basics of A/B testing
+especially for you: [Understanding A/B testing](index.md).
 
 ## Installation
 
