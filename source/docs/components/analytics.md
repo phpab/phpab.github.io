@@ -28,8 +28,8 @@ Google Analytics (GA) is a a very powerful tool that can combine website usage w
 ### Google Classic Analytics
 
 Use:
-* *PhpAb\Analytics\DataCollector\Google* to store user test participations
-* *PhpAb\Analytics\Renderer\Google\GoogleClassicAnalytics* to render in your page the JavaScript required by Google to track participation.
+*  `PhpAb\Analytics\DataCollector\Google` to store user test participations
+*  `PhpAb\Analytics\Renderer\Google\GoogleClassicAnalytics` to render in your page the JavaScript required by Google to track participation.
 
 ```php
 // This illustrates a test with:
@@ -84,8 +84,8 @@ $analytics = new GoogleClassicAnalytics($analyticsData->getTestsData());
 ### Google Universal Analytics
 
 Use:
-* *PhpAb\Analytics\DataCollector\Google* to store user test participations
-* *PhpAb\Analytics\Renderer\Google\GoogleUniversalAnalytics* to render in your page the JavaScript required by Google to track participation.
+* `PhpAb\Analytics\DataCollector\Google` to store user test participations
+* `PhpAb\Analytics\Renderer\Google\GoogleUniversalAnalytics` to render in your page the JavaScript required by Google to track participation.
 
 
 ```php
@@ -153,7 +153,7 @@ $ composer require phpab/analytics-pdo
 
 ### Usage
 
-This example uses Sqlite as storage service.
+This example uses `Sqlite` as storage service.
 
 ```php
 
@@ -224,12 +224,12 @@ $analytics = new \PhpAb\Analytics\PDO(
 $analytics->store('1.2.3.4-abc', 'homepage.php');
 ```
 
-The class *\PhpAb\Analytics\PDO* expects 3 parameters:
+The class `\PhpAb\Analytics\PDO` expects 3 parameters:
 * The the participation data array
 * The PDO instance
 * The table and fialds definition (optional)
 
-Once these parameters are passed, execute the *store($userIdentifier, $scenarioIdentifier)* passing two parameters:
+Once these parameters are passed, execute the `store($userIdentifier, $scenarioIdentifier)` passing two parameters:
 * User identifier, a string that will represent a website visitor. Usually these are stored in a cookie.
 * Scenario identifier, this is typically a url, either a complete one, or a normalized one.
 
@@ -237,7 +237,7 @@ Note: You can check the code and examples at [Analytics-PDO](https://github.com/
 
 ## MongoDB
 
-To store PhpAb test participations using MongoDB you must:
+To store PhpAb test participations using `MongoDB` you must:
 
 ### Install module
 Due to its requirements, MongoDB Analytics is shipped as a separate library.
@@ -307,11 +307,11 @@ $analytics = new \PhpAb\Analytics\MongoDB(
 $result = $analytics->store('1.2.3.4-abc', 'homepage.php');
 ```
 
-The class *\PhpAb\Analytics\MongoDB* expects 2 parameters:
+The class `\PhpAb\Analytics\MongoDB` expects 2 parameters:
 * The the participation data array
-* The MongoDB collection name where participation will be stored
+* The `MongoDB` collection name where participation will be stored
 
-Once these parameters are passed, execute the *store($userIdentifier, $scenarioIdentifier)* passing two parameters:
+Once these parameters are passed, execute the `store($userIdentifier, $scenarioIdentifier)` passing two parameters:
 * User identifier, a string that will represent a website visitor. Usually these are stored in a cookie.
 * Scenario identifier, this is typically a url, either a complete one, or a normalized one.
 
