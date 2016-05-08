@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Google Analytics - The A/B testing framework for PHP.</title>
+    <title>Google Analytics Experiments - The A/B testing framework for PHP.</title>
 
     <meta name="description"
           content="PhpAb is a A/B testing framework which can be used to perform multivariate testing.">
@@ -161,17 +161,17 @@
             <div class="col-md-9">
                 <article>
                     <div class="pull-right">
-                        <a href="https://github.com/phpab/phpab.github.io/blob/source/source/docs/components/googleanalytics/index.md"
+                        <a href="https://github.com/phpab/phpab.github.io/blob/source/source/docs/components/google-analytics-experiments/index.md"
                            class="btn btn-default btn-sm">
                             Edit this page on GitHub
                             <i class="fa fa-github"></i>
                         </a>
                     </div>
 
-                    <h1 id="google-analytics">Google Analytics</h1>
-<p>PhpAb supports both <strong>Classic Google Analytics Experiments</strong> (legacy) and <strong>Universal Analytics Experiments</strong> (new version).
-Google provides different ways to interact with it. This refers to the <strong>server-side</strong> implementation.</p>
-<p>To implement any of the two we assume:</p>
+                    <h1 id="google-analytics-experiments">Google Analytics Experiments</h1>
+<p>PhpAb supports both <strong>Classic Google Analytics Experiments</strong> (legacy version) and <strong>Universal Analytics Experiments</strong> (current version).
+Google provides different ways to interact with it. This refers to the <strong>server-side</strong> implementation, which means you will have to create the definition of the tests using Google Analytics and implement it in PHP using PhpAb.</p>
+<p>To implement the experiments we assume:</p>
 <ul>
 <li>you are familiar with Google Analytics;</li>
 <li>you are familiar with Google Analytics Experiments.</li>
@@ -187,17 +187,16 @@ Read more:</p>
 <li>In GA: <a href="#integrate-google-analytics-tracking">Integrate Google Analytics tracking</a></li>
 <li>In GA: <a href="#create-goals">Set the goal</a> your test will try to improve.</li>
 <li>In GA: <a href="#set-up-an-experiment">Set up an experiments</a> against a goal.</li>
-<li>In PhpAB: Create tests that have as identifier the <strong>Experiment ID</strong> provided by GA for the experiment.</li>
+<li>In PhpAB: Create tests indicating the <strong>Experiment ID</strong> provided by GA for the experiment.</li>
 <li>Run the PhpAb</li>
-<li>Use GoogleClassicAnalytics or GoogleUniversalAnalytics to render the JavaScript that will let Google Analytics know, which variant users are expericing.</li>
+<li>Use GoogleClassicAnalytics or GoogleUniversalAnalytics to render the JavaScript that will let GA know which variant users are expericing.</li>
 </ul>
+<p>After that, you will be able to read the result of your tests in GA.
+Note: keep in mind that GA updates experiments data hours later and not in real time.</p>
 <h2 id="integrate-google-analytics-tracking">Integrate Google Analytics Tracking</h2>
-<p>Google Analytics allows you to have insights about your website usage and to perform tests (experiments) that can alter the behaviour of your website users. All combined in a powerful yet simple interface.</p>
+<p>Google Analytics allows you to have insights about your website usage and to perform tests that can alter the behaviour of your website users. All combined in a powerful yet simple interface.</p>
 <p>Follow <a href="https://support.google.com/analytics/answer/1008080?hl=en">Google's instructions</a> to set up an account.</p>
 <h2 id="create-goals">Create goals</h2>
-<blockquote>
-<p>&quot;You can't improve what you can't measure.&quot;</p>
-</blockquote>
 <p>The whole purpose of running tests is to see if a variation performs better than another variation. If it does, adopt it and start again.
 However, &quot;better&quot; might have different meanings. You might want to test the engagement of users, the amount of people that visit a page or, of course, how many buy a product.
 This is why setting your goals is mandatory in Google Analytics.
@@ -208,12 +207,14 @@ It will illustrate what a typical experiment cycle is.</p>
 <p>Once you're familiar with it, you can create experiments using the <a href="https://support.google.com/analytics/answer/1745154">Content Experiment Interface</a>.</p>
 <p>Pay special attention to the <strong>Experiment ID</strong> shown in the interface since that will have to be the identifier of the test you create.</p>
 <pre><code class="language-php">// ...
-$test = new \PhpAb\Test\Test('0OOzcd7jRImEIZuAcSgQmA');
+$test = new Test(
+    $test1Name, 
+    [], 
+    [Google::EXPERIMENT_ID =&gt; '0OOzcd7jRImEIZuAcSgQmA']
+);
 // ..</code></pre>
 <p><img src="/img/create-experiments-interface.png" alt="Create content experiment" /></p>
-<blockquote>
-<p>Refer to <a href="/docs/getting-started.html">Getting started</a> for how to add tests.</p>
-</blockquote>
+<p>Now that you know what GA Experiments are, go to <a href="/docs/getting-started.html">Getting started</a> for how to add tests or to <a href="analytics.html">Analytics page</a> for the full Google Analytics implementation.</p>
                 </article>
             </div>
         </div>
