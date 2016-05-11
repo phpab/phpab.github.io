@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Storage types - The A/B testing framework for PHP.</title>
+    <title>Storage and adapters - The A/B testing framework for PHP.</title>
 
     <meta name="description"
           content="PhpAb is a A/B testing framework which can be used to perform multivariate testing.">
@@ -163,24 +163,70 @@
                         </a>
                     </div>
 
-                    <h1 id="storage-types">Storage types</h1>
+                    <h1 id="storage-and-adapters">Storage and adapters</h1>
 <p>When a user visits the application, the participation manager decides whether or not
 the user will participate in a test. And if so, in which test the user will
 participate. That choice will be remembered so that the user will have the same
 experience even when the page is reloaded.</p>
 <p>In order to remember that choice <em>PhpAb</em> make use of storage providers. You can
-configure the library to use a specific storage provider.</p>
+configure the library to use a specific storage adapter.</p>
 <h2 id="cookie">Cookie</h2>
 <p>The <code>Cookie</code> storage provider saves the tests and variants in which the user
 participates, in a cookie. Only one cookie is used and you can configure the name
 and lifetime of it.</p>
+<h3 id="usage">Usage</h3>
+<pre><code class="language-php">use PhpAb\Storage\Adapter\Cookie;
+use PhpAb\Storage\Storage;
+use PhpAb\Participation\Manager;
+
+// Create a Storage and its Adapter
+$adapter = new Cookie('phpab');
+$storage = new Storage($adapter);
+
+// Create a Participation Manager
+$manager = new Manager($storage);
+
+//...</code></pre>
+<p>Decide the name and the ttl of the cookie:</p>
+<pre><code class="language-php">$nameOfCookie = 'myCookie';
+$ttl = 86400; // in seconds
+$adapter = new Cookie($nameOfCookie, $ttl);</code></pre>
 <h2 id="session">Session</h2>
-<p>The <code>Session</code> storage provider remembers the choices just for the current session. When a new session
+<h3 id="installation">Installation</h3>
+<p>This implements <a href="https://github.com/auraphp/Aura.Session">Aura Sessions library</a>, reason which it must be include as external dependency.
+To add it simply use composer as:</p>
+<pre><code class="language-bash">composer require phpab/storage-aurasession</code></pre>
+<h3 id="usage-1">Usage</h3>
+<pre><code class="language-php">use PhpAb\Storage\Adapter\AuraSession;
+use PhpAb\Storage\Storage;
+use PhpAb\Participation\Manager;
+
+// Create a Storage and its Adapter
+$adapter = new AuraSession();
+$storage = new Storage($adapter);
+
+// Create a Participation Manager
+$manager = new Manager($storage);
+
+//...</code></pre>
+<p>The <code>AuraSession</code> storage provider remembers the choices just for the current session. When a new session
 is generated, the choices of the tests are cleared and phpab will re-evaluate if the user should participate.</p>
 <h2 id="runtime">Runtime</h2>
 <p>The <code>Runtime</code> storage provider remembers the choices only for the current request. It
 could be useful to use this provider for testing or development. In production you
 should avoid this storage provider.</p>
+<pre><code class="language-php">use PhpAb\Storage\Adapter\Runtime;
+use PhpAb\Storage\Storage;
+use PhpAb\Participation\Manager;
+
+// Create a Storage and its Adapter
+$adapter = new Runtime();
+$storage = new Storage($adapter);
+
+// Create a Participation Manager
+$manager = new Manager($storage);
+
+//...</code></pre>
                 </article>
             </div>
         </div>
