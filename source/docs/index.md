@@ -18,7 +18,7 @@ A/B testing, sometimes also called bucket tests or split-run testing, is a way
 to run an experiment with two variants, A and B. A and B are also called the
 control and the variation.
 
-The goal is two run an experiment and analyze with variation has an outcome that
+The goal is to run an experiment and analyze with variation has an outcome that
 meets the requirements most. Requirements can variate a lot and totally depend on
 the business case. One could use A/B testing for user experience for example. But
 one could also apply A/B testing to technical problems to see which version of an
